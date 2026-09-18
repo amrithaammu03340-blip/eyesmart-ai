@@ -1,2 +1,922 @@
-# eyesmart-ai
-AI-assisted preliminary eye screening
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EyeSmart AI</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial, sans-serif;
+}
+
+body{
+  background:#f4f8fb;
+  color:#17324d;
+  min-height:100vh;
+}
+
+.app{
+  max-width:700px;
+  margin:auto;
+  min-height:100vh;
+  background:white;
+  box-shadow:0 0 20px rgba(0,0,0,0.08);
+}
+
+header{
+  background:#0b6075;
+  color:white;
+  padding:22px;
+  text-align:center;
+}
+
+.logo{
+  font-size:38px;
+}
+
+header h1{
+  font-size:27px;
+  margin-top:5px;
+}
+
+header p{
+  font-size:14px;
+  margin-top:5px;
+}
+
+.screen{
+  padding:25px 20px;
+}
+
+.hidden{
+  display:none;
+}
+
+h2{
+  color:#0b6075;
+  margin-bottom:10px;
+}
+
+.subtitle{
+  color:#667781;
+  margin-bottom:20px;
+  line-height:1.5;
+}
+
+button{
+  width:100%;
+  border:none;
+  padding:15px;
+  margin-top:12px;
+  border-radius:12px;
+  background:#0b6075;
+  color:white;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+button.secondary{
+  background:#e8f2f5;
+  color:#0b6075;
+}
+
+button.back{
+  background:#777;
+}
+
+button:hover{
+  opacity:.9;
+}
+
+input, select, textarea{
+  width:100%;
+  padding:14px;
+  margin:8px 0 15px;
+  border:1px solid #ccd8dd;
+  border-radius:10px;
+  font-size:16px;
+}
+
+label{
+  font-weight:bold;
+  display:block;
+  margin-top:8px;
+}
+
+.option{
+  border:1px solid #ccd8dd;
+  border-radius:12px;
+  padding:14px;
+  margin:9px 0;
+  cursor:pointer;
+  background:#fafcfd;
+}
+
+.option:hover{
+  background:#eaf5f7;
+}
+
+.option input{
+  width:auto;
+  margin-right:8px;
+}
+
+.progress{
+  height:7px;
+  background:#e4ecef;
+  border-radius:10px;
+  margin-bottom:22px;
+}
+
+.progress-bar{
+  height:100%;
+  width:0%;
+  background:#0b6075;
+  border-radius:10px;
+}
+
+.chart-box{
+  background:#111;
+  color:white;
+  border-radius:14px;
+  padding:25px 10px;
+  text-align:center;
+  margin:20px 0;
+}
+
+.chart-letter{
+  font-family:Arial, sans-serif;
+  font-weight:bold;
+  line-height:1;
+  margin:18px 0;
+}
+
+.distance-info{
+  background:#edf7fa;
+  border-radius:10px;
+  padding:13px;
+  margin:15px 0;
+  font-size:14px;
+}
+
+.plate{
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  margin:20px auto;
+  background:
+    radial-gradient(circle at 25% 30%, #e8a33b 0 4px, transparent 5px),
+    radial-gradient(circle at 65% 25%, #4f8f8f 0 5px, transparent 6px),
+    radial-gradient(circle at 45% 65%, #c75d65 0 5px, transparent 6px),
+    radial-gradient(circle at 75% 70%, #e0a64a 0 4px, transparent 5px),
+    radial-gradient(circle at 30% 75%, #668e8c 0 4px, transparent 5px),
+    #dca47c;
+  box-shadow:inset 0 0 0 10px rgba(255,255,255,.15);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:48px;
+  font-weight:bold;
+  color:#55766f;
+}
+
+.summary{
+  background:#f3f8fa;
+  border-left:5px solid #0b6075;
+  padding:16px;
+  margin:12px 0;
+  border-radius:8px;
+}
+
+.result{
+  background:#eef8f0;
+  border-left:5px solid #32864b;
+  padding:16px;
+  border-radius:8px;
+  margin:15px 0;
+}
+
+.warning{
+  background:#fff6e8;
+  border-left:5px solid #e39a24;
+  padding:16px;
+  border-radius:8px;
+  margin:15px 0;
+}
+
+.footer{
+  text-align:center;
+  color:#777;
+  font-size:12px;
+  padding:20px;
+}
+
+.small{
+  font-size:13px;
+  color:#667781;
+}
+
+.center{
+  text-align:center;
+}
+
+.report-title{
+  text-align:center;
+  color:#0b6075;
+  margin-bottom:20px;
+}
+
+@media print{
+  body{
+    background:white;
+  }
+  .app{
+    box-shadow:none;
+    max-width:none;
+  }
+  button, header, .progress{
+    display:none !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<header>
+  <div class="logo">👁️</div>
+  <h1>EyeSmart AI</h1>
+  <p>AI-Assisted Preliminary Eye Screening</p>
+</header>
+
+<div class="progress">
+  <div class="progress-bar" id="progressBar"></div>
+</div>
+
+<!-- HOME -->
+<section id="home" class="screen">
+  <div class="center">
+    <h2>Welcome to EyeSmart AI</h2>
+    <p class="subtitle">
+      A digital platform for preliminary eye screening,
+      designed to guide patients through basic visual screening.
+    </p>
+
+    <div class="summary">
+      <b>What this system includes</b><br><br>
+      ✓ Digital distance vision screening<br>
+      ✓ Digital near vision screening<br>
+      ✓ Colour vision screening<br>
+      ✓ Basic eye observation<br>
+      ✓ AI-assisted screening summary<br>
+      ✓ Preliminary referral recommendation
+    </div>
+
+    <button onclick="showScreen('language')">
+      START SCREENING
+    </button>
+
+    <p class="small" style="margin-top:18px;">
+      This prototype is for preliminary screening and educational demonstration.
+    </p>
+  </div>
+</section>
+
+<!-- LANGUAGE -->
+<section id="language" class="screen hidden">
+  <h2>Choose Your Language</h2>
+  <p class="subtitle">
+    നിങ്ങളുടെ ഭാഷ തിരഞ്ഞെടുക്കുക
+  </p>
+
+  <button onclick="setLanguage('en')">
+    🇬🇧 English
+  </button>
+
+  <button class="secondary" onclick="setLanguage('ml')">
+    🇮🇳 മലയാളം
+  </button>
+</section>
+
+<!-- PATIENT DETAILS -->
+<section id="details" class="screen hidden">
+  <h2 id="detailsTitle">Patient Details</h2>
+
+  <label id="nameLabel">Name</label>
+  <input id="patientName" type="text" placeholder="Enter patient name">
+
+  <label id="ageLabel">Age</label>
+  <input id="patientAge" type="number" min="1" max="120" placeholder="Age">
+
+  <label id="genderLabel">Gender</label>
+  <select id="patientGender">
+    <option value="">Select</option>
+    <option>Male</option>
+    <option>Female</option>
+    <option>Other</option>
+  </select>
+
+  <button onclick="goSymptoms()" id="detailsNext">
+    Next
+  </button>
+</section>
+
+<!-- SYMPTOMS -->
+<section id="symptoms" class="screen hidden">
+  <h2 id="symptomTitle">Eye Symptoms</h2>
+
+  <p class="subtitle" id="symptomSubtitle">
+    Select the symptoms currently experienced by the patient.
+  </p>
+
+  <div class="option">
+    <label>
+      <input type="checkbox" value="Blurred vision" class="symptom">
+      <span class="enText">Blurred vision</span>
+    </label>
+  </div>
+
+  <div class="option">
+    <label>
+      <input type="checkbox" value="Eye pain" class="symptom">
+      <span class="enText">Eye pain</span>
+    </label>
+  </div>
+
+  <div class="option">
+    <label>
+      <input type="checkbox" value="Redness" class="symptom">
+      <span class="enText">Redness</span>
+    </label>
+  </div>
+
+  <div class="option">
+    <label>
+      <input type="checkbox" value="Itching" class="symptom">
+      <span class="enText">Itching</span>
+    </label>
+  </div>
+
+  <div class="option">
+    <label>
+      <input type="checkbox" value="Watering" class="symptom">
+      <span class="enText">Watering</span>
+    </label>
+  </div>
+
+  <div class="option">
+    <label>
+      <input type="checkbox" value="Headache / Eye strain" class="symptom">
+      <span class="enText">Headache / Eye strain</span>
+    </label>
+  </div>
+
+  <div class="option">
+    <label>
+      <input type="checkbox" value="Difficulty seeing at night" class="symptom">
+      <span class="enText">Difficulty seeing at night</span>
+    </label>
+  </div>
+
+  <div class="option">
+    <label>
+      <input type="checkbox" value="No complaints" class="symptom">
+      <span class="enText">No complaints</span>
+    </label>
+  </div>
+
+  <button onclick="goDistance()" id="symptomNext">
+    Next
+  </button>
+</section>
+
+<!-- DISTANCE VISION -->
+<section id="distance" class="screen hidden">
+  <h2>Distance Vision</h2>
+
+  <div class="distance-info">
+    📏 <b>Testing distance: 1 metre</b><br>
+    Keep the patient at the fixed testing position.
+  </div>
+
+  <div class="chart-box">
+    <div class="small" style="color:white;">DIGITAL DISTANCE VISION CHART</div>
+
+    <div class="chart-letter" style="font-size:52px;">E</div>
+    <div class="chart-letter" style="font-size:42px;">F P</div>
+    <div class="chart-letter" style="font-size:34px;">T O Z</div>
+    <div class="chart-letter" style="font-size:28px;">L P E D</div>
+    <div class="chart-letter" style="font-size:22px;">P E C F D</div>
+    <div class="chart-letter" style="font-size:17px;">E D F C Z P</div>
+  </div>
+
+  <p class="subtitle">
+    Examiner records the visual acuity result for each eye.
+  </p>
+
+  <label>Right Eye (RE)</label>
+  <select id="rightVA">
+    <option value="">Select VA</option>
+    <option>6/6</option>
+    <option>6/9</option>
+    <option>6/12</option>
+    <option>6/18</option>
+    <option>6/24</option>
+    <option>6/36</option>
+    <option>6/60</option>
+    <option>Unable to read</option>
+  </select>
+
+  <label>Left Eye (LE)</label>
+  <select id="leftVA">
+    <option value="">Select VA</option>
+    <option>6/6</option>
+    <option>6/9</option>
+    <option>6/12</option>
+    <option>6/18</option>
+    <option>6/24</option>
+    <option>6/36</option>
+    <option>6/60</option>
+    <option>Unable to read</option>
+  </select>
+
+  <button onclick="goNear()">Next</button>
+</section>
+
+<!-- NEAR VISION -->
+<section id="near" class="screen hidden">
+  <h2>Near Vision</h2>
+
+  <div class="distance-info">
+    📖 Hold the tablet at the instructed near-testing distance.
+  </div>
+
+  <div class="chart-box">
+    <div class="small" style="color:white;">DIGITAL NEAR VISION CHART</div>
+
+    <div style="font-size:28px;margin:20px;">N5</div>
+    <div style="font-size:25px;margin:20px;">N6</div>
+    <div style="font-size:22px;margin:20px;">N8</div>
+    <div style="font-size:19px;margin:20px;">N10</div>
+    <div style="font-size:16px;margin:20px;">N12</div>
+  </div>
+
+  <label>Right Eye Near Vision</label>
+  <select id="rightNear">
+    <option value="">Select</option>
+    <option>N5</option>
+    <option>N6</option>
+    <option>N8</option>
+    <option>N10</option>
+    <option>N12</option>
+    <option>Unable to read</option>
+  </select>
+
+  <label>Left Eye Near Vision</label>
+  <select id="leftNear">
+    <option value="">Select</option>
+    <option>N5</option>
+    <option>N6</option>
+    <option>N8</option>
+    <option>N10</option>
+    <option>N12</option>
+    <option>Unable to read</option>
+  </select>
+
+  <button onclick="goColour()">Next</button>
+</section>
+
+<!-- COLOUR VISION -->
+<section id="colour" class="screen hidden">
+  <h2>Colour Vision Screening</h2>
+
+  <p class="subtitle">
+    Digital colour vision screening using a pseudo-plate demonstration.
+  </p>
+
+  <div class="plate">
+    12
+  </div>
+
+  <p class="center">
+    <b>What number do you see?</b>
+  </p>
+
+  <input id="colourAnswer" type="text" placeholder="Enter the number">
+
+  <button onclick="goObservation()">Next</button>
+</section>
+
+<!-- OBSERVATION -->
+<section id="observation" class="screen hidden">
+  <h2>Basic Eye Observation</h2>
+
+  <p class="subtitle">
+    Examiner records visible findings during preliminary observation.
+  </p>
+
+  <div class="option">
+    <label>
+      <input type="checkbox" value="Redness" class="observation">
+      Redness
+    </label>
+  </div>
+
+  <div class="option">
+    <label>
+      <input type="checkbox" value="Watering" class="observation">
+      Watering
+    </label>
+  </div>
+
+  <div class="option">
+    <label>
+      <input type="checkbox" value="Discharge" class="observation">
+      Discharge
+    </label>
+  </div>
+
+  <div class="option">
+    <label>
+      <input type="checkbox" value="Swelling" class="observation">
+      Swelling
+    </label>
+  </div>
+
+  <div class="option">
+    <label>
+      <input type="checkbox" value="No obvious abnormality" class="observation">
+      No obvious abnormality
+    </label>
+  </div>
+
+  <label>Additional observation</label>
+  <textarea id="additionalObservation"
+    placeholder="Enter any additional observation"></textarea>
+
+  <button onclick="generateAI()">Generate Screening Summary</button>
+</section>
+
+<!-- AI SUMMARY -->
+<section id="ai" class="screen hidden">
+  <h2>🤖 AI-Assisted Screening Summary</h2>
+
+  <p class="subtitle">
+    The system combines the screening inputs and generates a preliminary
+    screening summary.
+  </p>
+
+  <div id="aiResult"></div>
+
+  <button onclick="showReport()">
+    View Screening Report
+  </button>
+</section>
+
+<!-- REPORT -->
+<section id="report" class="screen hidden">
+  <h2 class="report-title">👁️ EyeSmart AI</h2>
+
+  <div class="summary">
+    <b>AI-Assisted Preliminary Eye Screening Report</b>
+  </div>
+
+  <div id="reportContent"></div>
+
+  <div class="warning">
+    <b>Important:</b><br>
+    This is a preliminary screening report and not a medical diagnosis.
+    A comprehensive examination by an Optometrist/Ophthalmologist is
+    recommended when indicated.
+  </div>
+
+  <button onclick="window.print()">
+    🖨️ Print / Save Report
+  </button>
+
+  <button class="secondary" onclick="location.reload()">
+    Start New Screening
+  </button>
+</section>
+
+<div class="footer">
+  EyeSmart AI • Preliminary Eye Screening Prototype
+</div>
+
+</div>
+
+<script>
+
+let language = "en";
+
+let patient = {
+  name:"",
+  age:"",
+  gender:"",
+  symptoms:[],
+  rightVA:"",
+  leftVA:"",
+  rightNear:"",
+  leftNear:"",
+  colour:"",
+  observations:[],
+  additional:""
+};
+
+const screens = [
+  "home",
+  "language",
+  "details",
+  "symptoms",
+  "distance",
+  "near",
+  "colour",
+  "observation",
+  "ai",
+  "report"
+];
+
+function showScreen(id){
+
+  screens.forEach(s=>{
+    document.getElementById(s).classList.add("hidden");
+  });
+
+  document.getElementById(id).classList.remove("hidden");
+
+  let index = screens.indexOf(id);
+
+  if(index < 0) index = 0;
+
+  document.getElementById("progressBar").style.width =
+    ((index)/(screens.length-1))*100 + "%";
+
+  window.scrollTo(0,0);
+}
+
+function setLanguage(lang){
+
+  language = lang;
+
+  if(lang === "ml"){
+
+    document.getElementById("detailsTitle").innerText =
+      "രോഗിയുടെ വിവരങ്ങൾ";
+
+    document.getElementById("nameLabel").innerText =
+      "പേര്";
+
+    document.getElementById("ageLabel").innerText =
+      "വയസ്സ്";
+
+    document.getElementById("genderLabel").innerText =
+      "ലിംഗം";
+
+    document.getElementById("detailsNext").innerText =
+      "തുടരുക";
+
+    document.getElementById("symptomTitle").innerText =
+      "കണ്ണിന്റെ ലക്ഷണങ്ങൾ";
+
+    document.getElementById("symptomSubtitle").innerText =
+      "രോഗിക്ക് നിലവിൽ അനുഭവപ്പെടുന്ന ലക്ഷണങ്ങൾ തിരഞ്ഞെടുക്കുക.";
+
+    document.getElementById("symptomNext").innerText =
+      "തുടരുക";
+  }
+
+  showScreen("details");
+}
+
+function goSymptoms(){
+
+  patient.name =
+    document.getElementById("patientName").value.trim();
+
+  patient.age =
+    document.getElementById("patientAge").value;
+
+  patient.gender =
+    document.getElementById("patientGender").value;
+
+  if(!patient.name || !patient.age || !patient.gender){
+
+    alert(
+      language === "ml"
+      ? "ദയവായി എല്ലാ വിവരങ്ങളും നൽകുക."
+      : "Please enter all patient details."
+    );
+
+    return;
+  }
+
+  showScreen("symptoms");
+}
+
+function goDistance(){
+
+  patient.symptoms =
+    [...document.querySelectorAll(".symptom:checked")]
+    .map(x=>x.value);
+
+  showScreen("distance");
+}
+
+function goNear(){
+
+  patient.rightVA =
+    document.getElementById("rightVA").value;
+
+  patient.leftVA =
+    document.getElementById("leftVA").value;
+
+  if(!patient.rightVA || !patient.leftVA){
+
+    alert("Please record visual acuity for both eyes.");
+
+    return;
+  }
+
+  showScreen("near");
+}
+
+function goColour(){
+
+  patient.rightNear =
+    document.getElementById("rightNear").value;
+
+  patient.leftNear =
+    document.getElementById("leftNear").value;
+
+  showScreen("colour");
+}
+
+function goObservation(){
+
+  patient.colour =
+    document.getElementById("colourAnswer").value.trim();
+
+  patient.observations =
+    [...document.querySelectorAll(".observation:checked")]
+    .map(x=>x.value);
+
+  patient.additional =
+    document.getElementById("additionalObservation").value.trim();
+
+  showScreen("observation");
+}
+
+function generateAI(){
+
+  let flags = [];
+
+  if(patient.rightVA !== "6/6"){
+    flags.push("Reduced visual acuity noted in the right eye.");
+  }
+
+  if(patient.leftVA !== "6/6"){
+    flags.push("Reduced visual acuity noted in the left eye.");
+  }
+
+  if(patient.rightNear &&
+     patient.rightNear !== "N5"){
+    flags.push("Near vision finding noted in the right eye.");
+  }
+
+  if(patient.leftNear &&
+     patient.leftNear !== "N5"){
+    flags.push("Near vision finding noted in the left eye.");
+  }
+
+  if(patient.colour !== "12"){
+    flags.push("Colour vision response requires further assessment.");
+  }
+
+  if(patient.symptoms.length > 0 &&
+     !patient.symptoms.includes("No complaints")){
+
+    flags.push("Reported eye symptoms require clinical correlation.");
+  }
+
+  if(patient.observations.length > 0 &&
+     !patient.observations.includes("No obvious abnormality")){
+
+    flags.push("Visible eye findings were recorded during observation.");
+  }
+
+  let resultHTML = "";
+
+  if(flags.length === 0){
+
+    resultHTML = `
+      <div class="result">
+        <b>Preliminary screening:</b><br><br>
+        No major abnormality was flagged by the entered screening data.
+        Routine comprehensive eye examination is still recommended.
+      </div>
+    `;
+
+  }else{
+
+    resultHTML = `
+      <div class="warning">
+        <b>Screening flags identified:</b>
+        <ul style="margin-top:10px;padding-left:20px;">
+          ${flags.map(f=>`<li style="margin:7px 0;">${f}</li>`).join("")}
+        </ul>
+      </div>
+
+      <div class="result">
+        <b>Recommendation:</b><br><br>
+        Further comprehensive eye examination by an
+        Optometrist/Ophthalmologist is recommended.
+      </div>
+    `;
+  }
+
+  document.getElementById("aiResult").innerHTML = resultHTML;
+
+  showScreen("ai");
+}
+
+function showReport(){
+
+  let symptoms =
+    patient.symptoms.length
+    ? patient.symptoms.join(", ")
+    : "None recorded";
+
+  let observations =
+    patient.observations.length
+    ? patient.observations.join(", ")
+    : "None recorded";
+
+  document.getElementById("reportContent").innerHTML = `
+
+    <div class="summary">
+      <b>Patient Details</b><br><br>
+      Name: ${escapeHTML(patient.name)}<br>
+      Age: ${escapeHTML(patient.age)}<br>
+      Gender: ${escapeHTML(patient.gender)}
+    </div>
+
+    <div class="summary">
+      <b>Symptoms</b><br><br>
+      ${escapeHTML(symptoms)}
+    </div>
+
+    <div class="summary">
+      <b>Distance Visual Acuity</b><br><br>
+      Right Eye: ${escapeHTML(patient.rightVA)}<br>
+      Left Eye: ${escapeHTML(patient.leftVA)}
+    </div>
+
+    <div class="summary">
+      <b>Near Visual Acuity</b><br><br>
+      Right Eye: ${escapeHTML(patient.rightNear)}<br>
+      Left Eye: ${escapeHTML(patient.leftNear)}
+    </div>
+
+    <div class="summary">
+      <b>Colour Vision Response</b><br><br>
+      ${escapeHTML(patient.colour || "Not recorded")}
+    </div>
+
+    <div class="summary">
+      <b>Basic Eye Observation</b><br><br>
+      ${escapeHTML(observations)}<br><br>
+      Additional: ${escapeHTML(patient.additional || "None")}
+    </div>
+
+    <div class="result">
+      <b>AI-Assisted Recommendation</b><br><br>
+      The entered screening findings should be interpreted as
+      preliminary screening information. Further comprehensive
+      eye examination is recommended when indicated.
+    </div>
+  `;
+
+  showScreen("report");
+}
+
+function escapeHTML(value){
+
+  return String(value)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+}
+
+</script>
+
+</body>
+</html>
