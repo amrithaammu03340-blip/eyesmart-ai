@@ -2,921 +2,1537 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 <title>EyeSmart AI</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  font-family:Arial, sans-serif;
+*{box-sizing:border-box}
+
+:root{
+  --primary:#176b87;
+  --secondary:#2aa7a0;
+  --light:#eaf7f9;
+  --bg:#f5fafb;
+  --dark:#17343d;
+  --white:#fff;
 }
 
 body{
-  background:#f4f8fb;
-  color:#17324d;
-  min-height:100vh;
-}
-
-.app{
-  max-width:700px;
-  margin:auto;
-  min-height:100vh;
-  background:white;
-  box-shadow:0 0 20px rgba(0,0,0,0.08);
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:var(--bg);
+  color:var(--dark);
 }
 
 header{
-  background:#0b6075;
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
   color:white;
-  padding:22px;
   text-align:center;
-}
-
-.logo{
-  font-size:38px;
+  padding:18px 10px;
 }
 
 header h1{
-  font-size:27px;
-  margin-top:5px;
+  margin:0;
+  font-size:26px;
 }
 
 header p{
-  font-size:14px;
-  margin-top:5px;
+  margin:6px 0 0;
+  font-size:13px;
 }
 
-.screen{
-  padding:25px 20px;
+main{
+  width:100%;
+  max-width:900px;
+  margin:auto;
+  padding:12px;
 }
 
-.hidden{
-  display:none;
+.screen{display:none}
+.screen.active{display:block}
+
+.card{
+  background:white;
+  border-radius:18px;
+  padding:18px;
+  margin:12px 0;
+  box-shadow:0 5px 18px rgba(0,0,0,.08);
 }
 
 h2{
-  color:#0b6075;
-  margin-bottom:10px;
+  color:var(--primary);
+  margin-top:0;
 }
 
-.subtitle{
-  color:#667781;
-  margin-bottom:20px;
-  line-height:1.5;
-}
+h3{color:var(--primary)}
 
 button{
-  width:100%;
-  border:none;
-  padding:15px;
-  margin-top:12px;
-  border-radius:12px;
-  background:#0b6075;
+  border:0;
+  border-radius:11px;
+  padding:11px 16px;
+  background:var(--primary);
   color:white;
-  font-size:16px;
-  font-weight:bold;
   cursor:pointer;
+  margin:4px;
 }
 
 button.secondary{
-  background:#e8f2f5;
-  color:#0b6075;
+  background:#dceff3;
+  color:var(--dark);
 }
 
-button.back{
-  background:#777;
-}
-
-button:hover{
-  opacity:.9;
-}
-
-input, select, textarea{
-  width:100%;
-  padding:14px;
-  margin:8px 0 15px;
-  border:1px solid #ccd8dd;
-  border-radius:10px;
-  font-size:16px;
+.grid{
+  display:grid;
+  grid-template-columns:
+  repeat(auto-fit,minmax(180px,1fr));
+  gap:10px;
 }
 
 label{
-  font-weight:bold;
   display:block;
-  margin-top:8px;
-}
-
-.option{
-  border:1px solid #ccd8dd;
-  border-radius:12px;
-  padding:14px;
-  margin:9px 0;
-  cursor:pointer;
-  background:#fafcfd;
-}
-
-.option:hover{
-  background:#eaf5f7;
-}
-
-.option input{
-  width:auto;
-  margin-right:8px;
-}
-
-.progress{
-  height:7px;
-  background:#e4ecef;
-  border-radius:10px;
-  margin-bottom:22px;
-}
-
-.progress-bar{
-  height:100%;
-  width:0%;
-  background:#0b6075;
-  border-radius:10px;
-}
-
-.chart-box{
-  background:#111;
-  color:white;
-  border-radius:14px;
-  padding:25px 10px;
-  text-align:center;
-  margin:20px 0;
-}
-
-.chart-letter{
-  font-family:Arial, sans-serif;
+  font-size:13px;
   font-weight:bold;
-  line-height:1;
-  margin:18px 0;
+  margin:8px 0 4px;
 }
 
-.distance-info{
-  background:#edf7fa;
+input,select,textarea{
+  width:100%;
+  padding:10px;
+  border:1px solid #c9dfe4;
   border-radius:10px;
-  padding:13px;
-  margin:15px 0;
+  font:inherit;
+}
+
+textarea{
+  min-height:90px;
+  resize:vertical;
+}
+
+.notice{
+  background:#fff7df;
+  padding:12px;
+  border-radius:12px;
+  font-size:13px;
+}
+
+.instruction{
+  background:var(--light);
+  padding:12px;
+  border-radius:12px;
+  margin:10px 0;
   font-size:14px;
 }
 
-.plate{
-  width:180px;
-  height:180px;
-  border-radius:50%;
-  margin:20px auto;
-  background:
-    radial-gradient(circle at 25% 30%, #e8a33b 0 4px, transparent 5px),
-    radial-gradient(circle at 65% 25%, #4f8f8f 0 5px, transparent 6px),
-    radial-gradient(circle at 45% 65%, #c75d65 0 5px, transparent 6px),
-    radial-gradient(circle at 75% 70%, #e0a64a 0 4px, transparent 5px),
-    radial-gradient(circle at 30% 75%, #668e8c 0 4px, transparent 5px),
-    #dca47c;
-  box-shadow:inset 0 0 0 10px rgba(255,255,255,.15);
+.small{
+  font-size:12px;
+  color:#657980;
+}
+
+.center{text-align:center}
+
+.actions{
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  margin-top:15px;
+}
+
+/* LANGUAGE */
+
+.langs{
+  display:grid;
+  grid-template-columns:
+  repeat(auto-fit,minmax(125px,1fr));
+  gap:8px;
+}
+
+.langs button{
+  background:white;
+  color:var(--dark);
+  border:1px solid #c8dce1;
+}
+
+.langs button.selected{
+  background:var(--primary);
+  color:white;
+}
+
+/* STEP */
+
+.steps{
+  display:flex;
+  gap:5px;
+  flex-wrap:wrap;
+  margin-bottom:10px;
+}
+
+.steps span{
+  background:#e4f3f5;
+  border-radius:20px;
+  padding:5px 8px;
+  font-size:10px;
+}
+
+/* CALIBRATION */
+
+.calibration-box{
+  border:2px dashed #8bb7c0;
+  padding:14px;
+  border-radius:14px;
+  margin:12px 0;
+}
+
+.reference-bar{
+  width:100mm;
+  max-width:100%;
+  height:5mm;
+  background:#222;
+  margin:10px auto;
+}
+
+.calibration-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+/* VISUAL ACUITY */
+
+.va-chart{
+  border:2px solid #17343d;
+  border-radius:15px;
+  background:white;
+  padding:12px;
+  overflow:hidden;
+}
+
+.va-row{
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:48px;
-  font-weight:bold;
-  color:#55766f;
+  gap:10px;
+  min-height:28px;
+  border-bottom:1px solid #edf2f3;
+  padding:5px;
 }
 
-.summary{
-  background:#f3f8fa;
-  border-left:5px solid #0b6075;
-  padding:16px;
-  margin:12px 0;
-  border-radius:8px;
+.va-label{
+  width:55px;
+  font-weight:bold;
+  font-size:12px;
+  flex-shrink:0;
 }
+
+.optotype{
+  font-family:Arial,sans-serif;
+  font-weight:bold;
+  letter-spacing:.12em;
+  line-height:1;
+  white-space:nowrap;
+}
+
+/*
+1 metre distance.
+Approximate full optotype heights:
+6/60 = 14.54 mm
+6/36 = 8.73 mm
+6/24 = 5.82 mm
+6/18 = 4.36 mm
+6/12 = 2.91 mm
+6/9  = 2.18 mm
+6/6  = 1.45 mm
+*/
+
+.d60{font-size:14.54mm}
+.d36{font-size:8.73mm}
+.d24{font-size:5.82mm}
+.d18{font-size:4.36mm}
+.d12{font-size:2.91mm}
+.d9{font-size:2.18mm}
+.d6{font-size:1.45mm}
+
+/*
+Near chart at 40 cm.
+Approximate N-size display heights:
+N36 = 12.70 mm
+N24 = 8.47 mm
+N18 = 6.35 mm
+N12 = 4.23 mm
+N10 = 3.53 mm
+N8  = 2.82 mm
+N6  = 2.12 mm
+*/
+
+.n36{font-size:12.70mm}
+.n24{font-size:8.47mm}
+.n18{font-size:6.35mm}
+.n12{font-size:4.23mm}
+.n10{font-size:3.53mm}
+.n8{font-size:2.82mm}
+.n6{font-size:2.12mm}
+
+/* prevent tiny text from becoming unreadable */
+@media(max-width:600px){
+  .d60{font-size:13mm}
+  .d36{font-size:8mm}
+  .d24{font-size:5.5mm}
+  .d18{font-size:4.1mm}
+  .d12{font-size:2.8mm}
+  .d9{font-size:2.1mm}
+  .d6{font-size:1.45mm}
+
+  .n36{font-size:11mm}
+  .n24{font-size:8mm}
+  .n18{font-size:6mm}
+  .n12{font-size:4mm}
+  .n10{font-size:3.4mm}
+  .n8{font-size:2.7mm}
+  .n6{font-size:2mm}
+}
+
+/* COLOUR PLATES */
+
+.plates{
+  display:grid;
+  grid-template-columns:
+  repeat(auto-fit,minmax(210px,1fr));
+  gap:15px;
+}
+
+.plate{
+  position:relative;
+  height:210px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:2px solid #d9e6e8;
+  border-radius:16px;
+  background:#fbfdfd;
+  overflow:hidden;
+}
+
+.plate-circle{
+  width:165px;
+  height:165px;
+  border-radius:50%;
+  position:relative;
+  overflow:hidden;
+  background:#d5b58c;
+}
+
+/* dots */
+
+.plate-dot{
+  position:absolute;
+  border-radius:50%;
+}
+
+.plate-number{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  z-index:20;
+  font-size:44px;
+  font-weight:bold;
+  color:#34755e;
+  line-height:1;
+  text-align:center;
+  pointer-events:none;
+}
+
+/* AMsler */
+
+.amsler{
+  width:min(90vw,430px);
+  aspect-ratio:1;
+  margin:18px auto;
+  border:2px solid #222;
+
+  background:
+  repeating-linear-gradient(
+    0deg,
+    transparent 0,
+    transparent 9%,
+    #333 9.2%,
+    transparent 9.5%
+  ),
+  repeating-linear-gradient(
+    90deg,
+    transparent 0,
+    transparent 9%,
+    #333 9.2%,
+    transparent 9.5%
+  );
+
+  position:relative;
+}
+
+.amsler-dot{
+  position:absolute;
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background:red;
+
+  left:50%;
+  top:50%;
+
+  transform:translate(-50%,-50%);
+}
+
+/* PHOTOS */
+
+.photo-grid{
+  display:grid;
+  grid-template-columns:
+  repeat(auto-fit,minmax(200px,1fr));
+  gap:12px;
+}
+
+.photo-box{
+  border:1px dashed #8eb5bd;
+  border-radius:14px;
+  padding:12px;
+  text-align:center;
+}
+
+.preview{
+  display:none;
+  width:100%;
+  max-height:230px;
+  object-fit:contain;
+  border-radius:12px;
+  margin-top:10px;
+}
+
+/* RESULT */
 
 .result{
-  background:#eef8f0;
-  border-left:5px solid #32864b;
-  padding:16px;
-  border-radius:8px;
-  margin:15px 0;
+  padding:15px;
+  background:#edf8f0;
+  border-radius:14px;
+  margin:10px 0;
 }
 
-.warning{
-  background:#fff6e8;
-  border-left:5px solid #e39a24;
-  padding:16px;
-  border-radius:8px;
-  margin:15px 0;
+.alert{
+  background:#fff1ed;
 }
 
-.footer{
-  text-align:center;
-  color:#777;
-  font-size:12px;
-  padding:20px;
+table{
+  width:100%;
+  border-collapse:collapse;
 }
 
-.small{
-  font-size:13px;
-  color:#667781;
+th,td{
+  border-bottom:1px solid #dce8ea;
+  padding:9px;
+  text-align:left;
 }
 
-.center{
-  text-align:center;
-}
-
-.report-title{
-  text-align:center;
-  color:#0b6075;
-  margin-bottom:20px;
-}
-
-@media print{
-  body{
-    background:white;
-  }
-  .app{
-    box-shadow:none;
-    max-width:none;
-  }
-  button, header, .progress{
-    display:none !important;
-  }
+@media(max-width:500px){
+  main{padding:8px}
+  .card{padding:14px}
+  .plate{height:190px}
 }
 </style>
 </head>
 
 <body>
 
-<div class="app">
-
 <header>
-  <div class="logo">👁️</div>
-  <h1>EyeSmart AI</h1>
-  <p>AI-Assisted Preliminary Eye Screening</p>
+<h1>EyeSmart AI</h1>
+<p>AI-Assisted Preliminary Eye Screening</p>
 </header>
 
-<div class="progress">
-  <div class="progress-bar" id="progressBar"></div>
-</div>
+<main>
+
+<div class="steps" id="steps"></div>
 
 <!-- HOME -->
-<section id="home" class="screen">
-  <div class="center">
-    <h2>Welcome to EyeSmart AI</h2>
-    <p class="subtitle">
-      A digital platform for preliminary eye screening,
-      designed to guide patients through basic visual screening.
-    </p>
 
-    <div class="summary">
-      <b>What this system includes</b><br><br>
-      ✓ Digital distance vision screening<br>
-      ✓ Digital near vision screening<br>
-      ✓ Colour vision screening<br>
-      ✓ Basic eye observation<br>
-      ✓ AI-assisted screening summary<br>
-      ✓ Preliminary referral recommendation
-    </div>
+<section id="home" class="screen active">
 
-    <button onclick="showScreen('language')">
-      START SCREENING
-    </button>
+<div class="card center">
 
-    <p class="small" style="margin-top:18px;">
-      This prototype is for preliminary screening and educational demonstration.
-    </p>
-  </div>
+<h2>Welcome to EyeSmart AI</h2>
+
+<p>
+A digital preliminary eye-screening prototype
+for educational and demonstration purposes.
+</p>
+
+<button onclick="go('language')">
+Start Screening
+</button>
+
+</div>
+
+<div class="card notice">
+<b>Important:</b>
+This system is a preliminary screening prototype.
+It is not a diagnosis and does not replace a
+comprehensive eye examination.
+</div>
+
 </section>
+
 
 <!-- LANGUAGE -->
-<section id="language" class="screen hidden">
-  <h2>Choose Your Language</h2>
-  <p class="subtitle">
-    നിങ്ങളുടെ ഭാഷ തിരഞ്ഞെടുക്കുക
-  </p>
 
-  <button onclick="setLanguage('en')">
-    🇬🇧 English
-  </button>
+<section id="language" class="screen">
 
-  <button class="secondary" onclick="setLanguage('ml')">
-    🇮🇳 മലയാളം
-  </button>
+<div class="card">
+
+<h2 data-key="chooseLanguage">
+Choose Language
+</h2>
+
+<p class="small">
+English + 22 scheduled Indian languages
+</p>
+
+<div class="langs" id="languages"></div>
+
+<div class="actions">
+
+<button class="secondary"
+onclick="go('home')">
+Back
+</button>
+
+<button onclick="go('details')">
+Continue
+</button>
+
+</div>
+
+</div>
+
 </section>
 
-<!-- PATIENT DETAILS -->
-<section id="details" class="screen hidden">
-  <h2 id="detailsTitle">Patient Details</h2>
 
-  <label id="nameLabel">Name</label>
-  <input id="patientName" type="text" placeholder="Enter patient name">
+<!-- PATIENT -->
 
-  <label id="ageLabel">Age</label>
-  <input id="patientAge" type="number" min="1" max="120" placeholder="Age">
+<section id="details" class="screen">
 
-  <label id="genderLabel">Gender</label>
-  <select id="patientGender">
-    <option value="">Select</option>
-    <option>Male</option>
-    <option>Female</option>
-    <option>Other</option>
-  </select>
+<div class="card">
 
-  <button onclick="goSymptoms()" id="detailsNext">
-    Next
-  </button>
+<h2 data-key="patientDetails">
+Patient Details
+</h2>
+
+<div class="grid">
+
+<div>
+<label>Name</label>
+<input id="name">
+</div>
+
+<div>
+<label>Age</label>
+<input id="age" type="number">
+</div>
+
+<div>
+<label>Sex</label>
+
+<select id="sex">
+<option>Male</option>
+<option>Female</option>
+<option>Other</option>
+</select>
+
+</div>
+
+<div>
+<label>Phone</label>
+<input id="phone" type="tel">
+</div>
+
+</div>
+
+<div class="actions">
+
+<button class="secondary"
+onclick="go('language')">
+Back
+</button>
+
+<button onclick="go('symptoms')">
+Next
+</button>
+
+</div>
+
+</div>
+
 </section>
+
 
 <!-- SYMPTOMS -->
-<section id="symptoms" class="screen hidden">
-  <h2 id="symptomTitle">Eye Symptoms</h2>
 
-  <p class="subtitle" id="symptomSubtitle">
-    Select the symptoms currently experienced by the patient.
-  </p>
+<section id="symptoms" class="screen">
 
-  <div class="option">
-    <label>
-      <input type="checkbox" value="Blurred vision" class="symptom">
-      <span class="enText">Blurred vision</span>
-    </label>
-  </div>
+<div class="card">
 
-  <div class="option">
-    <label>
-      <input type="checkbox" value="Eye pain" class="symptom">
-      <span class="enText">Eye pain</span>
-    </label>
-  </div>
+<h2>Patient-Reported Symptoms</h2>
 
-  <div class="option">
-    <label>
-      <input type="checkbox" value="Redness" class="symptom">
-      <span class="enText">Redness</span>
-    </label>
-  </div>
+<label>
+Symptoms
+</label>
 
-  <div class="option">
-    <label>
-      <input type="checkbox" value="Itching" class="symptom">
-      <span class="enText">Itching</span>
-    </label>
-  </div>
+<textarea
+id="symptomsText"
+placeholder="Blurred vision, itching, watering, pain, headache...">
+</textarea>
 
-  <div class="option">
-    <label>
-      <input type="checkbox" value="Watering" class="symptom">
-      <span class="enText">Watering</span>
-    </label>
-  </div>
+<div class="grid">
 
-  <div class="option">
-    <label>
-      <input type="checkbox" value="Headache / Eye strain" class="symptom">
-      <span class="enText">Headache / Eye strain</span>
-    </label>
-  </div>
+<div>
 
-  <div class="option">
-    <label>
-      <input type="checkbox" value="Difficulty seeing at night" class="symptom">
-      <span class="enText">Difficulty seeing at night</span>
-    </label>
-  </div>
+<label>Affected Eye</label>
 
-  <div class="option">
-    <label>
-      <input type="checkbox" value="No complaints" class="symptom">
-      <span class="enText">No complaints</span>
-    </label>
-  </div>
+<select id="affectedEye">
 
-  <button onclick="goDistance()" id="symptomNext">
-    Next
-  </button>
+<option>Both Eyes</option>
+<option>Right Eye</option>
+<option>Left Eye</option>
+<option>Not Sure</option>
+
+</select>
+
+</div>
+
+<div>
+
+<label>Since</label>
+
+<input
+id="since"
+placeholder="e.g. 2 weeks">
+
+</div>
+
+</div>
+
+<div class="actions">
+
+<button class="secondary"
+onclick="go('details')">
+Back
+</button>
+
+<button onclick="go('history')">
+Next
+</button>
+
+</div>
+
+</div>
+
 </section>
 
-<!-- DISTANCE VISION -->
-<section id="distance" class="screen hidden">
-  <h2>Distance Vision</h2>
 
-  <div class="distance-info">
-    📏 <b>Testing distance: 1 metre</b><br>
-    Keep the patient at the fixed testing position.
-  </div>
+<!-- HISTORY -->
 
-  <div class="chart-box">
-    <div class="small" style="color:white;">DIGITAL DISTANCE VISION CHART</div>
+<section id="history" class="screen">
 
-    <div class="chart-letter" style="font-size:52px;">E</div>
-    <div class="chart-letter" style="font-size:42px;">F P</div>
-    <div class="chart-letter" style="font-size:34px;">T O Z</div>
-    <div class="chart-letter" style="font-size:28px;">L P E D</div>
-    <div class="chart-letter" style="font-size:22px;">P E C F D</div>
-    <div class="chart-letter" style="font-size:17px;">E D F C Z P</div>
-  </div>
+<div class="card">
 
-  <p class="subtitle">
-    Examiner records the visual acuity result for each eye.
-  </p>
+<h2>Ocular History</h2>
 
-  <label>Right Eye (RE)</label>
-  <select id="rightVA">
-    <option value="">Select VA</option>
-    <option>6/6</option>
-    <option>6/9</option>
-    <option>6/12</option>
-    <option>6/18</option>
-    <option>6/24</option>
-    <option>6/36</option>
-    <option>6/60</option>
-    <option>Unable to read</option>
-  </select>
+<div class="grid">
 
-  <label>Left Eye (LE)</label>
-  <select id="leftVA">
-    <option value="">Select VA</option>
-    <option>6/6</option>
-    <option>6/9</option>
-    <option>6/12</option>
-    <option>6/18</option>
-    <option>6/24</option>
-    <option>6/36</option>
-    <option>6/60</option>
-    <option>Unable to read</option>
-  </select>
+<div>
+<label>Glasses / Spectacles</label>
 
-  <button onclick="goNear()">Next</button>
+<select id="glasses">
+<option>No</option>
+<option>Yes</option>
+</select>
+</div>
+
+<div>
+<label>Contact Lenses</label>
+
+<select id="contact">
+<option>No</option>
+<option>Yes</option>
+</select>
+</div>
+
+<div>
+<label>Previous Eye Surgery</label>
+
+<select id="surgery">
+<option>No</option>
+<option>Yes</option>
+</select>
+</div>
+
+<div>
+<label>Surgery Details</label>
+
+<input id="surgeryDetails">
+
+</div>
+
+</div>
+
+<div class="actions">
+
+<button class="secondary"
+onclick="go('symptoms')">
+Back
+</button>
+
+<button onclick="go('photos')">
+Next
+</button>
+
+</div>
+
+</div>
+
 </section>
 
-<!-- NEAR VISION -->
-<section id="near" class="screen hidden">
-  <h2>Near Vision</h2>
 
-  <div class="distance-info">
-    📖 Hold the tablet at the instructed near-testing distance.
-  </div>
+<!-- PHOTOS -->
 
-  <div class="chart-box">
-    <div class="small" style="color:white;">DIGITAL NEAR VISION CHART</div>
+<section id="photos" class="screen">
 
-    <div style="font-size:28px;margin:20px;">N5</div>
-    <div style="font-size:25px;margin:20px;">N6</div>
-    <div style="font-size:22px;margin:20px;">N8</div>
-    <div style="font-size:19px;margin:20px;">N10</div>
-    <div style="font-size:16px;margin:20px;">N12</div>
-  </div>
+<div class="card">
 
-  <label>Right Eye Near Vision</label>
-  <select id="rightNear">
-    <option value="">Select</option>
-    <option>N5</option>
-    <option>N6</option>
-    <option>N8</option>
-    <option>N10</option>
-    <option>N12</option>
-    <option>Unable to read</option>
-  </select>
+<h2>Eye Photos</h2>
 
-  <label>Left Eye Near Vision</label>
-  <select id="leftNear">
-    <option value="">Select</option>
-    <option>N5</option>
-    <option>N6</option>
-    <option>N8</option>
-    <option>N10</option>
-    <option>N12</option>
-    <option>Unable to read</option>
-  </select>
+<p class="small">
+Optional camera/upload feature for demonstration.
+</p>
 
-  <button onclick="goColour()">Next</button>
+<div class="photo-grid">
+
+<div class="photo-box">
+
+<b>Right Eye</b>
+
+<br><br>
+
+<input
+type="file"
+accept="image/*"
+capture="environment"
+onchange="showPhoto(this,'rightPreview')">
+
+<img
+id="rightPreview"
+class="preview">
+
+</div>
+
+
+<div class="photo-box">
+
+<b>Left Eye</b>
+
+<br><br>
+
+<input
+type="file"
+accept="image/*"
+capture="environment"
+onchange="showPhoto(this,'leftPreview')">
+
+<img
+id="leftPreview"
+class="preview">
+
+</div>
+
+</div>
+
+<div class="actions">
+
+<button class="secondary"
+onclick="go('history')">
+Back
+</button>
+
+<button onclick="go('distance')">
+Next
+</button>
+
+</div>
+
+</div>
+
 </section>
 
-<!-- COLOUR VISION -->
-<section id="colour" class="screen hidden">
-  <h2>Colour Vision Screening</h2>
 
-  <p class="subtitle">
-    Digital colour vision screening using a pseudo-plate demonstration.
-  </p>
+<!-- DISTANCE -->
 
-  <div class="plate">
-    12
-  </div>
+<section id="distance" class="screen">
 
-  <p class="center">
-    <b>What number do you see?</b>
-  </p>
+<div class="card">
 
-  <input id="colourAnswer" type="text" placeholder="Enter the number">
+<h2>Distance Visual Acuity</h2>
 
-  <button onclick="goObservation()">Next</button>
+<div class="instruction">
+
+<b>Testing distance: 1 metre</b><br><br>
+
+Cover one eye without pressing it.
+Read the letters from top to bottom.
+Test Right Eye and Left Eye separately.
+
+</div>
+
+
+<div class="calibration-box">
+
+<b>Display Calibration</b>
+
+<p class="small">
+
+The black reference bar represents
+100 mm. If you have a physical ruler,
+compare it with the displayed bar.
+
+</p>
+
+<div class="reference-bar"></div>
+
+<label>
+Calibration scale
+</label>
+
+<input
+type="range"
+id="calibration"
+min="80"
+max="120"
+value="100"
+oninput="calibrate(this.value)">
+
+<p class="small">
+Scale: <span id="scaleValue">100%</span>
+</p>
+
+</div>
+
+
+<div class="va-chart"
+id="distanceChart">
+</div>
+
+
+<div class="grid">
+
+<div>
+
+<label>Right Eye Result</label>
+
+<select id="distanceRE">
+
+<option>6/60</option>
+<option>6/36</option>
+<option>6/24</option>
+<option>6/18</option>
+<option>6/12</option>
+<option>6/9</option>
+<option>6/6</option>
+
+</select>
+
+</div>
+
+<div>
+
+<label>Left Eye Result</label>
+
+<select id="distanceLE">
+
+<option>6/60</option>
+<option>6/36</option>
+<option>6/24</option>
+<option>6/18</option>
+<option>6/12</option>
+<option>6/9</option>
+<option>6/6</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<div class="actions">
+
+<button class="secondary"
+onclick="go('photos')">
+Back
+</button>
+
+<button onclick="go('near')">
+Next
+</button>
+
+</div>
+
+</div>
+
 </section>
 
-<!-- OBSERVATION -->
-<section id="observation" class="screen hidden">
-  <h2>Basic Eye Observation</h2>
 
-  <p class="subtitle">
-    Examiner records visible findings during preliminary observation.
-  </p>
+<!-- NEAR -->
 
-  <div class="option">
-    <label>
-      <input type="checkbox" value="Redness" class="observation">
-      Redness
-    </label>
-  </div>
+<section id="near" class="screen">
 
-  <div class="option">
-    <label>
-      <input type="checkbox" value="Watering" class="observation">
-      Watering
-    </label>
-  </div>
+<div class="card">
 
-  <div class="option">
-    <label>
-      <input type="checkbox" value="Discharge" class="observation">
-      Discharge
-    </label>
-  </div>
+<h2>Near Visual Acuity</h2>
 
-  <div class="option">
-    <label>
-      <input type="checkbox" value="Swelling" class="observation">
-      Swelling
-    </label>
-  </div>
+<div class="instruction">
 
-  <div class="option">
-    <label>
-      <input type="checkbox" value="No obvious abnormality" class="observation">
-      No obvious abnormality
-    </label>
-  </div>
+<b>Testing distance: 40 cm</b><br><br>
 
-  <label>Additional observation</label>
-  <textarea id="additionalObservation"
-    placeholder="Enter any additional observation"></textarea>
+Hold the device/chart at approximately
+40 cm from the patient's eyes.
+Cover one eye without pressing it.
+Test each eye separately.
 
-  <button onclick="generateAI()">Generate Screening Summary</button>
+</div>
+
+
+<div class="calibration-box">
+
+<b>Near Chart Calibration</b>
+
+<p class="small">
+
+Use the same display calibration before
+performing the demonstration.
+
+</p>
+
+<div class="reference-bar"></div>
+
+</div>
+
+
+<div class="va-chart"
+id="nearChart">
+</div>
+
+
+<div class="grid">
+
+<div>
+
+<label>Right Eye Result</label>
+
+<select id="nearRE">
+
+<option>N36</option>
+<option>N24</option>
+<option>N18</option>
+<option>N12</option>
+<option>N10</option>
+<option>N8</option>
+<option>N6</option>
+
+</select>
+
+</div>
+
+<div>
+
+<label>Left Eye Result</label>
+
+<select id="nearLE">
+
+<option>N36</option>
+<option>N24</option>
+<option>N18</option>
+<option>N12</option>
+<option>N10</option>
+<option>N8</option>
+<option>N6</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<div class="actions">
+
+<button class="secondary"
+onclick="go('distance')">
+Back
+</button>
+
+<button onclick="go('colour')">
+Next
+</button>
+
+</div>
+
+</div>
+
 </section>
 
-<!-- AI SUMMARY -->
-<section id="ai" class="screen hidden">
-  <h2>🤖 AI-Assisted Screening Summary</h2>
 
-  <p class="subtitle">
-    The system combines the screening inputs and generates a preliminary
-    screening summary.
-  </p>
+<!-- COLOUR -->
 
-  <div id="aiResult"></div>
+<section id="colour" class="screen">
 
-  <button onclick="showReport()">
-    View Screening Report
-  </button>
+<div class="card">
+
+<h2>Colour Vision Screening</h2>
+
+<div class="instruction">
+
+These are <b>prototype demonstration plates</b>.
+For actual clinical testing, use validated
+Ishihara plates.
+
+</div>
+
+<div class="plates"
+id="plates">
+</div>
+
+<label>
+Colour Vision Notes
+</label>
+
+<textarea
+id="colourNotes"
+placeholder="Record patient's response...">
+</textarea>
+
+
+<div class="actions">
+
+<button class="secondary"
+onclick="go('near')">
+Back
+</button>
+
+<button onclick="go('amsler')">
+Next
+</button>
+
+</div>
+
+</div>
+
 </section>
+
+
+<!-- AMSLER -->
+
+<section id="amsler" class="screen">
+
+<div class="card center">
+
+<h2>Amsler Grid</h2>
+
+<div class="instruction">
+
+Test one eye at a time.
+Cover the other eye without pressing it.
+Keep looking at the exact centre red dot.
+Record distortion or missing areas.
+
+</div>
+
+
+<div class="amsler">
+
+<div class="amsler-dot"></div>
+
+</div>
+
+
+<div class="grid">
+
+<div>
+
+<label>Right Eye</label>
+
+<select id="amslerRE">
+
+<option>Normal</option>
+<option>Distortion reported</option>
+<option>Missing / blank area</option>
+<option>Unable to perform</option>
+
+</select>
+
+</div>
+
+
+<div>
+
+<label>Left Eye</label>
+
+<select id="amslerLE">
+
+<option>Normal</option>
+<option>Distortion reported</option>
+<option>Missing / blank area</option>
+<option>Unable to perform</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<label>
+Additional Comment
+</label>
+
+<textarea id="amslerComment"></textarea>
+
+
+<div class="actions">
+
+<button class="secondary"
+onclick="go('colour')">
+Back
+</button>
+
+<button onclick="analyse()">
+Analyse
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- RESULT -->
+
+<section id="result" class="screen">
+
+<div class="card">
+
+<h2>AI-Assisted Screening Summary</h2>
+
+<div id="resultContent"></div>
+
+<div class="notice">
+
+This is rule-based preliminary screening
+decision support for educational demonstration.
+It is not a medical diagnosis.
+
+</div>
+
+<div class="actions">
+
+<button class="secondary"
+onclick="go('amsler')">
+Back
+</button>
+
+<button onclick="createReport()">
+View Report
+</button>
+
+</div>
+
+</div>
+
+</section>
+
 
 <!-- REPORT -->
-<section id="report" class="screen hidden">
-  <h2 class="report-title">👁️ EyeSmart AI</h2>
 
-  <div class="summary">
-    <b>AI-Assisted Preliminary Eye Screening Report</b>
-  </div>
+<section id="report" class="screen">
 
-  <div id="reportContent"></div>
+<div class="card">
 
-  <div class="warning">
-    <b>Important:</b><br>
-    This is a preliminary screening report and not a medical diagnosis.
-    A comprehensive examination by an Optometrist/Ophthalmologist is
-    recommended when indicated.
-  </div>
+<h2>Screening Report</h2>
 
-  <button onclick="window.print()">
-    🖨️ Print / Save Report
-  </button>
+<div id="reportContent"></div>
 
-  <button class="secondary" onclick="location.reload()">
-    Start New Screening
-  </button>
+<div class="actions">
+
+<button class="secondary"
+onclick="go('result')">
+Back
+</button>
+
+<button onclick="window.print()">
+Print / Save PDF
+</button>
+
+<button onclick="location.reload()">
+New Screening
+</button>
+
+</div>
+
+</div>
+
 </section>
 
-<div class="footer">
-  EyeSmart AI • Preliminary Eye Screening Prototype
-</div>
+</main>
 
-</div>
 
 <script>
 
-let language = "en";
+/* =========================
+LANGUAGES
+========================= */
 
-let patient = {
-  name:"",
-  age:"",
-  gender:"",
-  symptoms:[],
-  rightVA:"",
-  leftVA:"",
-  rightNear:"",
-  leftNear:"",
-  colour:"",
-  observations:[],
-  additional:""
-};
-
-const screens = [
-  "home",
-  "language",
-  "details",
-  "symptoms",
-  "distance",
-  "near",
-  "colour",
-  "observation",
-  "ai",
-  "report"
+const languages=[
+['en','English','en-IN'],
+['ml','മലയാളം','ml-IN'],
+['hi','हिन्दी','hi-IN'],
+['bn','বাংলা','bn-IN'],
+['te','తెలుగు','te-IN'],
+['mr','मराठी','mr-IN'],
+['ta','தமிழ்','ta-IN'],
+['gu','ગુજરાતી','gu-IN'],
+['kn','ಕನ್ನಡ','kn-IN'],
+['or','ଓଡ଼ିଆ','or-IN'],
+['pa','ਪੰਜਾਬੀ','pa-IN'],
+['as','অসমীয়া','as-IN'],
+['mai','मैथिली','hi-IN'],
+['sa','संस्कृतम्','hi-IN'],
+['ur','اردو','ur-IN'],
+['kok','कोंकणी','hi-IN'],
+['ne','नेपाली','ne-NP'],
+['sd','سنڌي','sd-IN'],
+['doi','डोगरी','hi-IN'],
+['ks','कॉशुर','hi-IN'],
+['mni','মৈতৈলোন','mni-IN'],
+['brx','बड़ो','hi-IN'],
+['sat','ᱥᱟᱱᱛᱟᱲᱤ','sat-IN']
 ];
 
-function showScreen(id){
+const translations={
 
-  screens.forEach(s=>{
-    document.getElementById(s).classList.add("hidden");
-  });
+en:{
+chooseLanguage:'Choose Language',
+patientDetails:'Patient Details'
+},
 
-  document.getElementById(id).classList.remove("hidden");
+ml:{
+chooseLanguage:'ഭാഷ തിരഞ്ഞെടുക്കുക',
+patientDetails:'രോഗിയുടെ വിവരങ്ങൾ'
+},
 
-  let index = screens.indexOf(id);
+hi:{
+chooseLanguage:'भाषा चुनें',
+patientDetails:'रोगी की जानकारी'
+},
 
-  if(index < 0) index = 0;
-
-  document.getElementById("progressBar").style.width =
-    ((index)/(screens.length-1))*100 + "%";
-
-  window.scrollTo(0,0);
+ta:{
+chooseLanguage:'மொழியைத் தேர்ந்தெடுக்கவும்',
+patientDetails:'நோயாளர் விவரங்கள்'
 }
 
-function setLanguage(lang){
+};
 
-  language = lang;
+let currentLanguage='en';
+let voiceLanguage='en-IN';
 
-  if(lang === "ml"){
 
-    document.getElementById("detailsTitle").innerText =
-      "രോഗിയുടെ വിവരങ്ങൾ";
+/* =========================
+LANGUAGE BUTTONS
+========================= */
 
-    document.getElementById("nameLabel").innerText =
-      "പേര്";
+function loadLanguages(){
 
-    document.getElementById("ageLabel").innerText =
-      "വയസ്സ്";
+const box=document.getElementById('languages');
 
-    document.getElementById("genderLabel").innerText =
-      "ലിംഗം";
+languages.forEach(item=>{
 
-    document.getElementById("detailsNext").innerText =
-      "തുടരുക";
+const btn=document.createElement('button');
 
-    document.getElementById("symptomTitle").innerText =
-      "കണ്ണിന്റെ ലക്ഷണങ്ങൾ";
+btn.textContent=item[1];
 
-    document.getElementById("symptomSubtitle").innerText =
-      "രോഗിക്ക് നിലവിൽ അനുഭവപ്പെടുന്ന ലക്ഷണങ്ങൾ തിരഞ്ഞെടുക്കുക.";
+btn.onclick=function(){
 
-    document.getElementById("symptomNext").innerText =
-      "തുടരുക";
-  }
+currentLanguage=item[0];
+voiceLanguage=item[2];
 
-  showScreen("details");
+document
+.querySelectorAll('.langs button')
+.forEach(x=>x.classList.remove('selected'));
+
+btn.classList.add('selected');
+
+applyLanguage();
+
+speak(
+currentLanguage==='ml'
+?'ഭാഷ തിരഞ്ഞെടുത്തു'
+:'Language selected'
+);
+
+};
+
+box.appendChild(btn);
+
+});
+
 }
 
-function goSymptoms(){
+function applyLanguage(){
 
-  patient.name =
-    document.getElementById("patientName").value.trim();
+const dictionary=
+translations[currentLanguage]||
+translations.en;
 
-  patient.age =
-    document.getElementById("patientAge").value;
+document
+.querySelectorAll('[data-key]')
+.forEach(el=>{
 
-  patient.gender =
-    document.getElementById("patientGender").value;
+const key=el.dataset.key;
 
-  if(!patient.name || !patient.age || !patient.gender){
-
-    alert(
-      language === "ml"
-      ? "ദയവായി എല്ലാ വിവരങ്ങളും നൽകുക."
-      : "Please enter all patient details."
-    );
-
-    return;
-  }
-
-  showScreen("symptoms");
+if(dictionary[key]){
+el.textContent=dictionary[key];
 }
 
-function goDistance(){
+});
 
-  patient.symptoms =
-    [...document.querySelectorAll(".symptom:checked")]
-    .map(x=>x.value);
-
-  showScreen("distance");
 }
 
-function goNear(){
 
-  patient.rightVA =
-    document.getElementById("rightVA").value;
+/* =========================
+VOICE
+========================= */
 
-  patient.leftVA =
-    document.getElementById("leftVA").value;
+function speak(text){
 
-  if(!patient.rightVA || !patient.leftVA){
+if(!('speechSynthesis' in window))
+return;
 
-    alert("Please record visual acuity for both eyes.");
+speechSynthesis.cancel();
 
-    return;
-  }
+const speech=
+new SpeechSynthesisUtterance(text);
 
-  showScreen("near");
+speech.lang=voiceLanguage;
+speech.rate=.9;
+
+speechSynthesis.speak(speech);
+
 }
 
-function goColour(){
 
-  patient.rightNear =
-    document.getElementById("rightNear").value;
+/* =========================
+NAVIGATION
+========================= */
 
-  patient.leftNear =
-    document.getElementById("leftNear").value;
+const screenNames=[
+'home',
+'language',
+'details',
+'symptoms',
+'history',
+'photos',
+'distance',
+'near',
+'colour',
+'amsler',
+'result',
+'report'
+];
 
-  showScreen("colour");
+function go(id){
+
+document
+.querySelectorAll('.screen')
+.forEach(s=>s.classList.remove('active'));
+
+document
+.getElementById(id)
+.classList.add('active');
+
+updateSteps(id);
+
+if(id==='distance'){
+speak(
+'Cover one eye. Read the distance visual acuity chart at one metre.'
+);
 }
 
-function goObservation(){
-
-  patient.colour =
-    document.getElementById("colourAnswer").value.trim();
-
-  patient.observations =
-    [...document.querySelectorAll(".observation:checked")]
-    .map(x=>x.value);
-
-  patient.additional =
-    document.getElementById("additionalObservation").value.trim();
-
-  showScreen("observation");
+if(id==='near'){
+speak(
+'Cover one eye. Hold the near chart at forty centimetres.'
+);
 }
 
-function generateAI(){
-
-  let flags = [];
-
-  if(patient.rightVA !== "6/6"){
-    flags.push("Reduced visual acuity noted in the right eye.");
-  }
-
-  if(patient.leftVA !== "6/6"){
-    flags.push("Reduced visual acuity noted in the left eye.");
-  }
-
-  if(patient.rightNear &&
-     patient.rightNear !== "N5"){
-    flags.push("Near vision finding noted in the right eye.");
-  }
-
-  if(patient.leftNear &&
-     patient.leftNear !== "N5"){
-    flags.push("Near vision finding noted in the left eye.");
-  }
-
-  if(patient.colour !== "12"){
-    flags.push("Colour vision response requires further assessment.");
-  }
-
-  if(patient.symptoms.length > 0 &&
-     !patient.symptoms.includes("No complaints")){
-
-    flags.push("Reported eye symptoms require clinical correlation.");
-  }
-
-  if(patient.observations.length > 0 &&
-     !patient.observations.includes("No obvious abnormality")){
-
-    flags.push("Visible eye findings were recorded during observation.");
-  }
-
-  let resultHTML = "";
-
-  if(flags.length === 0){
-
-    resultHTML = `
-      <div class="result">
-        <b>Preliminary screening:</b><br><br>
-        No major abnormality was flagged by the entered screening data.
-        Routine comprehensive eye examination is still recommended.
-      </div>
-    `;
-
-  }else{
-
-    resultHTML = `
-      <div class="warning">
-        <b>Screening flags identified:</b>
-        <ul style="margin-top:10px;padding-left:20px;">
-          ${flags.map(f=>`<li style="margin:7px 0;">${f}</li>`).join("")}
-        </ul>
-      </div>
-
-      <div class="result">
-        <b>Recommendation:</b><br><br>
-        Further comprehensive eye examination by an
-        Optometrist/Ophthalmologist is recommended.
-      </div>
-    `;
-  }
-
-  document.getElementById("aiResult").innerHTML = resultHTML;
-
-  showScreen("ai");
+if(id==='colour'){
+speak(
+'Read the number in the centre of each colour vision plate.'
+);
 }
 
-function showReport(){
-
-  let symptoms =
-    patient.symptoms.length
-    ? patient.symptoms.join(", ")
-    : "None recorded";
-
-  let observations =
-    patient.observations.length
-    ? patient.observations.join(", ")
-    : "None recorded";
-
-  document.getElementById("reportContent").innerHTML = `
-
-    <div class="summary">
-      <b>Patient Details</b><br><br>
-      Name: ${escapeHTML(patient.name)}<br>
-      Age: ${escapeHTML(patient.age)}<br>
-      Gender: ${escapeHTML(patient.gender)}
-    </div>
-
-    <div class="summary">
-      <b>Symptoms</b><br><br>
-      ${escapeHTML(symptoms)}
-    </div>
-
-    <div class="summary">
-      <b>Distance Visual Acuity</b><br><br>
-      Right Eye: ${escapeHTML(patient.rightVA)}<br>
-      Left Eye: ${escapeHTML(patient.leftVA)}
-    </div>
-
-    <div class="summary">
-      <b>Near Visual Acuity</b><br><br>
-      Right Eye: ${escapeHTML(patient.rightNear)}<br>
-      Left Eye: ${escapeHTML(patient.leftNear)}
-    </div>
-
-    <div class="summary">
-      <b>Colour Vision Response</b><br><br>
-      ${escapeHTML(patient.colour || "Not recorded")}
-    </div>
-
-    <div class="summary">
-      <b>Basic Eye Observation</b><br><br>
-      ${escapeHTML(observations)}<br><br>
-      Additional: ${escapeHTML(patient.additional || "None")}
-    </div>
-
-    <div class="result">
-      <b>AI-Assisted Recommendation</b><br><br>
-      The entered screening findings should be interpreted as
-      preliminary screening information. Further comprehensive
-      eye examination is recommended when indicated.
-    </div>
-  `;
-
-  showScreen("report");
+if(id==='amsler'){
+speak(
+'Cover one eye and look at the exact centre red dot.'
+);
 }
 
-function escapeHTML(value){
+window.scrollTo({
+top:0,
+behavior:'smooth'
+});
 
-  return String(value)
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
 }
 
-</script>
 
-</body>
-                                          </html>
+/* =========================
+STEPS
+========================= */
+
+function updateSteps(active){
+
+document.getElementById('steps').innerHTML=
+screenNames
+.map((x,i)=>
+`<span>${i+1}. ${x}</span>`
+)
+.join('');
+
+}
+
+
+/* =========================
+DISTANCE CHART
+========================= */
+
+const distanceRows=[
+
+['6/60','E F P T O','d60'],
+
+['6/36','T O Z L P E','d36'],
+
+['6/24','P E C F D Z L','d24'],
+
+['6/18','L P E D C T O','d18'],
+
+['6/12','E D F C Z P T','d12'],
+
+['6/9','P E C F D Z L','d9'],
+
+['6/6','E D F C Z P T O','d6']
+
+];
+
+
+function createDistanceChart(){
+
+const chart=
+document.getElementById('distanceChart');
+
+chart.innerHTML='';
+
+distanceRows.forEach(row=>{
+
+const div=
+document.createElement('div');
+
+div.className='va-row';
+
+div.innerHTML=`
+
+<div class="va-label">
+${row[0]}
+</div>
+
+<div class="optotype ${row[2]}">
+${row[1]}
+</div>
+
+<button
+onclick="speak('${row[0]}')">
+🔊
+</button>
+
+`;
+
+chart.appendChild(div);
+
+});
+
+}
+
+
+/* =========================
+NEAR CHART
+========================= */
+
+const nearRows=[
+
+['N36','N H V T O','n36'],
+
+['N24','D K N R H V','n24'],
+
+['N18','O N H V D K R','n18'],
+
+['N12','R H K N V O D','n12'],
+
+['N10','V D N H R K O','n10'],
+
+['N8','K O R V N D H','n8'],
+
+['N6','H N D O K R V','n6']
+
+];
+
+
+function createNearChart(){
+
+const chart=
+document.getElementById('nearChart');
+
+chart.innerHTML='';
+
+nearRows.forEach(row=>{
+
+const div=
+document.createElement('div');
+
+div.className='va-row';
+
+div.innerHTML=`
+
+<div class="va-label">
+${row[0]}
+</div>
+
+<div class="optotype ${row[2]}">
+${row[1]}
+</div>
+
+<button
+onclick="speak('${row[0]}')">
+🔊
+</button>
+
+`;
+
+chart.appendChild(div);
+
+});
+
+}
+
+
+/* =========
