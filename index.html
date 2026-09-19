@@ -7,47 +7,54 @@
 
 <style>
 *{box-sizing:border-box}
+
 body{
-  margin:0;
-  font-family:Arial,Helvetica,sans-serif;
-  background:linear-gradient(135deg,#eef8ff,#f7f3ff);
-  color:#172033;
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+background:linear-gradient(135deg,#eef8ff,#f7f3ff);
+color:#172033;
 }
+
 header{
-  background:linear-gradient(135deg,#1769aa,#6c4ab6);
-  color:white;
-  padding:22px 16px;
-  text-align:center;
+background:linear-gradient(135deg,#1769aa,#6c4ab6);
+color:white;
+padding:22px 16px;
+text-align:center;
 }
+
 header h1{margin:0;font-size:27px}
 header p{margin:7px 0 0;font-size:14px}
 
 .container{
-  max-width:950px;
-  margin:auto;
-  padding:18px;
+max-width:950px;
+margin:auto;
+padding:18px;
 }
+
 .card{
-  background:white;
-  border-radius:18px;
-  padding:20px;
-  margin:15px 0;
-  box-shadow:0 7px 25px rgba(0,0,0,.08);
+background:white;
+border-radius:18px;
+padding:20px;
+margin:15px 0;
+box-shadow:0 7px 25px rgba(0,0,0,.08);
 }
+
 h2{color:#1769aa;margin-top:0}
 h3{color:#51419b}
 
 button{
-  border:0;
-  border-radius:10px;
-  padding:11px 16px;
-  margin:5px;
-  background:#1769aa;
-  color:white;
-  font-weight:bold;
-  cursor:pointer;
+border:0;
+border-radius:10px;
+padding:11px 16px;
+margin:5px;
+background:#1769aa;
+color:white;
+font-weight:bold;
+cursor:pointer;
 }
+
 button:hover{opacity:.9}
+
 .secondary{background:#6c4ab6}
 .success{background:#159957}
 .warning{background:#e98b22}
@@ -55,227 +62,251 @@ button:hover{opacity:.9}
 .audio{background:#0b8f6a}
 
 input,select,textarea{
-  width:100%;
-  padding:11px;
-  border:1px solid #ccd5e0;
-  border-radius:9px;
-  margin:6px 0 12px;
-  font-size:15px;
+width:100%;
+padding:11px;
+border:1px solid #ccd5e0;
+border-radius:9px;
+margin:6px 0 12px;
+font-size:15px;
 }
+
 textarea{min-height:80px}
 
 .grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-  gap:10px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+gap:10px;
 }
+
 .lang-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(135px,1fr));
-  gap:8px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(135px,1fr));
+gap:8px;
 }
+
 .lang-grid button{
-  background:#f0f4ff;
-  color:#24345b;
-  border:1px solid #ccd8ff;
+background:#f0f4ff;
+color:#24345b;
+border:1px solid #ccd8ff;
 }
+
 .lang-grid button.active{
-  background:#1769aa;
-  color:white;
+background:#1769aa;
+color:white;
 }
 
 .section{display:none}
 .section.active{display:block}
 
 .instruction{
-  background:#edf8ff;
-  border-left:5px solid #1769aa;
-  padding:13px;
-  border-radius:8px;
-  line-height:1.6;
+background:#edf8ff;
+border-left:5px solid #1769aa;
+padding:13px;
+border-radius:8px;
+line-height:1.6;
 }
 
 .marker{
-  margin:15px auto;
-  max-width:500px;
-  padding:15px;
-  border:3px dashed #6c4ab6;
-  border-radius:14px;
-  text-align:center;
-  font-weight:bold;
-  background:#faf7ff;
+margin:15px auto;
+max-width:500px;
+padding:15px;
+border:3px dashed #6c4ab6;
+border-radius:14px;
+text-align:center;
+font-weight:bold;
+background:#faf7ff;
 }
 
 .eye-result{
-  background:#f7f8fc;
-  padding:14px;
-  border-radius:12px;
-  margin:10px 0;
+background:#f7f8fc;
+padding:14px;
+border-radius:12px;
+margin:10px 0;
 }
 
-.va-line{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:15px;
-  padding:7px;
-  border-bottom:1px solid #e5e5e5;
-}
-.va-label{
-  width:55px;
-  font-size:14px;
-  font-weight:bold;
-  color:#6c4ab6;
-}
-.optotype{
-  font-family:Arial,sans-serif;
-  font-weight:900;
-  letter-spacing:4px;
-  line-height:1;
-}
-
+.va-line,
 .near-line{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:15px;
-  padding:8px;
-  border-bottom:1px solid #e5e5e5;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:15px;
+padding:7px;
+border-bottom:1px solid #e5e5e5;
 }
+
+.va-label,
 .near-label{
-  width:55px;
-  font-weight:bold;
-  color:#6c4ab6;
+width:55px;
+font-size:14px;
+font-weight:bold;
+color:#6c4ab6;
+}
+
+.optotype{
+font-family:Arial,sans-serif;
+font-weight:900;
+letter-spacing:4px;
+line-height:1;
 }
 
 .plate-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:18px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+gap:18px;
 }
 
 .plate-card{
-  background:#fafafa;
-  padding:15px;
-  border-radius:16px;
-  text-align:center;
-  border:1px solid #e1e5ef;
+background:#fafafa;
+padding:15px;
+border-radius:16px;
+text-align:center;
+border:1px solid #e1e5ef;
 }
 
 .ishihara{
-  width:190px;
-  height:190px;
-  border-radius:50%;
-  margin:10px auto 15px;
-  position:relative;
-  overflow:hidden;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  background:#d7e1a4;
-  box-shadow:inset 0 0 15px rgba(0,0,0,.15);
+width:190px;
+height:190px;
+border-radius:50%;
+margin:10px auto 15px;
+position:relative;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+box-shadow:inset 0 0 15px rgba(0,0,0,.15);
 }
 
 .dot{
-  position:absolute;
-  border-radius:50%;
+position:absolute;
+border-radius:50%;
 }
 
 .plate-number{
-  position:relative;
-  z-index:20;
-  font-size:68px;
-  font-weight:900;
-  font-family:Arial,sans-serif;
-  color:#9b3855;
-  opacity:.75;
-  letter-spacing:2px;
-  text-shadow:0 1px 2px rgba(0,0,0,.08);
+position:relative;
+z-index:20;
+font-size:58px;
+font-weight:900;
+font-family:Arial,sans-serif;
+opacity:.75;
+letter-spacing:1px;
+text-shadow:0 1px 2px rgba(0,0,0,.1);
 }
 
 .answer{
-  text-align:center;
-  font-weight:bold;
+text-align:center;
+font-weight:bold;
 }
 
 .answer input{
-  text-align:center;
-  width:90%;
+text-align:center;
+width:90%;
+}
+
+.symptom-card{
+border:1px solid #e1e5ef;
+border-radius:12px;
+padding:12px;
+margin:8px 0;
+background:#fbfcff;
+}
+
+.symptom-title{
+font-weight:bold;
+margin-bottom:5px;
+}
+
+.symptom-controls{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:8px;
 }
 
 .amsler{
-  width:min(88vw,430px);
-  aspect-ratio:1;
-  margin:20px auto;
-  position:relative;
-  background:
-    linear-gradient(#333 1px,transparent 1px),
-    linear-gradient(90deg,#333 1px,transparent 1px);
-  background-size:10% 10%;
-  border:2px solid #333;
+width:min(88vw,430px);
+aspect-ratio:1;
+margin:20px auto;
+position:relative;
+background:
+linear-gradient(#333 1px,transparent 1px),
+linear-gradient(90deg,#333 1px,transparent 1px);
+background-size:10% 10%;
+border:2px solid #333;
 }
+
 .center-dot{
-  width:14px;
-  height:14px;
-  background:#e00000;
-  border-radius:50%;
-  position:absolute;
-  left:50%;
-  top:50%;
-  transform:translate(-50%,-50%);
-  z-index:10;
+width:14px;
+height:14px;
+background:#e00000;
+border-radius:50%;
+position:absolute;
+left:50%;
+top:50%;
+transform:translate(-50%,-50%);
+z-index:10;
 }
 
 .check{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  padding:5px;
+display:flex;
+align-items:center;
+gap:8px;
+padding:5px;
 }
-.check input{width:auto;margin:0}
+
+.check input{
+width:auto;
+margin:0;
+}
 
 .report{
-  background:#f7fbff;
-  border:1px solid #d5e8f8;
-  padding:18px;
-  border-radius:12px;
+background:#f7fbff;
+border:1px solid #d5e8f8;
+padding:18px;
+border-radius:12px;
 }
 
 .footer{
-  text-align:center;
-  font-size:12px;
-  color:#687386;
-  padding:25px;
-}
-
-.nav{
-  display:flex;
-  justify-content:space-between;
-  flex-wrap:wrap;
-  gap:8px;
+text-align:center;
+font-size:12px;
+color:#687386;
+padding:25px;
 }
 
 .small{
-  font-size:13px;
-  color:#687386;
+font-size:13px;
+color:#687386;
 }
 
 .disclaimer{
-  background:#fff7e8;
-  border-left:5px solid #e98b22;
-  padding:12px;
-  border-radius:8px;
-  font-size:13px;
+background:#fff7e8;
+border-left:5px solid #e98b22;
+padding:12px;
+border-radius:8px;
+font-size:13px;
 }
 
 .hidden{display:none!important}
 
 @media(max-width:600px){
-  header h1{font-size:22px}
-  .container{padding:10px}
-  .card{padding:15px}
-  .ishihara{width:170px;height:170px}
-  .plate-number{font-size:60px}
+
+header h1{font-size:22px}
+
+.container{padding:10px}
+
+.card{padding:15px}
+
+.ishihara{
+width:170px;
+height:170px;
+}
+
+.plate-number{
+font-size:54px;
+}
+
+.symptom-controls{
+grid-template-columns:1fr;
+}
+
 }
 </style>
 </head>
@@ -283,81 +314,84 @@ textarea{min-height:80px}
 <body>
 
 <header>
-  <h1>👁️ EyeSmart AI</h1>
-  <p>AI-Assisted Preliminary Eye Screening System</p>
+<h1>👁️ EyeSmart AI</h1>
+<p id="headerSubtitle">AI-Assisted Preliminary Eye Screening System</p>
 </header>
 
 <div class="container">
 
 <!-- HOME -->
 <section id="home" class="section active">
+
 <div class="card">
-<h2 id="welcomeTitle">Welcome to EyeSmart AI</h2>
+
+<h2 id="welcomeTitle"></h2>
 
 <div class="instruction">
-<b id="welcomeText">
-A simple digital platform for preliminary eye screening.
-</b>
+<b id="welcomeText"></b>
 </div>
 
-<h3 id="languageTitle">Select Language</h3>
+<h3 id="languageTitle"></h3>
 
 <div class="lang-grid" id="languageButtons"></div>
 
 <br>
 
 <button class="audio" onclick="speakCurrent()">
-🔊 <span data-t="listen">Listen</span>
+🔊 <span id="listenText"></span>
 </button>
 
 <button onclick="showSection('patient')">
-<span data-t="start">Start Screening</span> →
+<span id="startText"></span> →
 </button>
 
 </div>
 
 <div class="card disclaimer">
-<b>Important:</b> EyeSmart AI is a prototype for preliminary screening and educational demonstration. It is not a substitute for a comprehensive eye examination or clinical diagnosis.
+<b id="importantText"></b>
+<span id="disclaimerText"></span>
 </div>
+
 </section>
 
 
 <!-- PATIENT -->
 <section id="patient" class="section">
+
 <div class="card">
 
-<h2 data-t="patientDetails">Patient Details</h2>
+<h2 id="patientTitle"></h2>
 
 <div class="grid">
 
 <div>
-<label data-t="name">Name</label>
+<label id="nameLabel"></label>
 <input id="pname">
 </div>
 
 <div>
-<label data-t="age">Age</label>
+<label id="ageLabel"></label>
 <input id="page" type="number">
 </div>
 
 <div>
-<label data-t="gender">Gender</label>
+<label id="genderLabel"></label>
 <select id="pgender">
-<option>Male</option>
-<option>Female</option>
-<option>Other</option>
+<option id="maleOption"></option>
+<option id="femaleOption"></option>
+<option id="otherOption"></option>
 </select>
 </div>
 
 <div>
-<label data-t="phone">Phone</label>
+<label id="phoneLabel"></label>
 <input id="phone">
 </div>
 
 </div>
 
 <button onclick="showSection('symptoms')">
-<span data-t="next">Next</span> →
+<span id="nextPatient"></span> →
 </button>
 
 </div>
@@ -366,39 +400,19 @@ A simple digital platform for preliminary eye screening.
 
 <!-- SYMPTOMS -->
 <section id="symptoms" class="section">
+
 <div class="card">
 
-<h2 data-t="symptoms">Patient-Reported Symptoms</h2>
+<h2 id="symptomTitle"></h2>
 
-<p class="small">
-Select symptoms experienced by the patient.
-</p>
+<p class="small" id="symptomHelp"></p>
 
 <div id="symptomList"></div>
 
-<div class="grid">
-
-<div>
-<label data-t="affectedEye">Affected Eye</label>
-<select id="symEye">
-<option value="">Select</option>
-<option>Right eye</option>
-<option>Left eye</option>
-<option>Both eyes</option>
-</select>
-</div>
-
-<div>
-<label data-t="since">Since when?</label>
-<input id="symSince" placeholder="e.g. 2 weeks">
-</div>
-
-</div>
-
-<button class="success" onclick="saveSymptoms()">Save Symptoms</button>
+<button class="success" onclick="saveSymptoms()" id="saveSymptomsBtn"></button>
 
 <button onclick="showSection('history')">
-<span data-t="next">Next</span> →
+<span id="nextSymptoms"></span> →
 </button>
 
 </div>
@@ -407,31 +421,32 @@ Select symptoms experienced by the patient.
 
 <!-- HISTORY -->
 <section id="history" class="section">
+
 <div class="card">
 
-<h2 data-t="history">Ocular History</h2>
+<h2 id="historyTitle"></h2>
 
 <label class="check">
 <input type="checkbox" id="specs">
-<span>👓 Spectacles / glasses</span>
+<span id="specsText"></span>
 </label>
 
 <label class="check">
 <input type="checkbox" id="cl">
-<span>👁️ Contact lens use</span>
+<span id="contactText"></span>
 </label>
 
 <label class="check">
 <input type="checkbox" id="surgery">
-<span>🏥 Previous eye surgery</span>
+<span id="surgeryText"></span>
 </label>
 
-<label>Details</label>
-<textarea id="historyDetails"
-placeholder="Enter relevant ocular history..."></textarea>
+<label id="historyDetailsLabel"></label>
+
+<textarea id="historyDetails"></textarea>
 
 <button onclick="showSection('distance')">
-<span data-t="next">Next</span> →
+<span id="nextHistory"></span> →
 </button>
 
 </div>
@@ -440,39 +455,28 @@ placeholder="Enter relevant ocular history..."></textarea>
 
 <!-- DISTANCE -->
 <section id="distance" class="section">
+
 <div class="card">
 
-<h2>📏 Distance Visual Acuity</h2>
+<h2 id="distanceTitle"></h2>
 
-<div class="instruction">
-<b>1 metre test</b><br>
-1. Stand or sit exactly <b>1.00 metre</b> from the tablet screen.<br>
-2. Keep the screen approximately at eye level.<br>
-3. Cover one eye gently without pressing it.<br>
-4. Read the letters from top to bottom.<br>
-5. Test the other eye separately.<br>
-6. Keep browser zoom at 100%.
-</div>
+<div class="instruction" id="distanceInstruction"></div>
 
-<button class="audio" onclick="speakDistance()">🔊 Play Distance Instruction</button>
+<button class="audio" onclick="speakDistance()">
+🔊 <span id="distanceAudio"></span>
+</button>
 
-<div class="marker">
-📍 PATIENT POSITION<br>
-<b>1.00 METRE FROM SCREEN</b><br>
-Stand / Sit Here
-</div>
+<div class="marker" id="distanceMarker"></div>
 
-<p class="small">
-Prototype tablet reference: approximately 14.6 cm × 23.5 cm display area.
-Actual clinical optotype calibration depends on the physical display and browser/device scaling.
-</p>
+<p class="small" id="calibrationNote"></p>
 
 <div id="distanceChart"></div>
 
 <div class="eye-result">
-<b>Right Eye Result</b>
+<b id="rightDistanceLabel"></b>
+
 <select id="rightDistance">
-<option value="">Select last line read</option>
+<option value="">--</option>
 <option>6/60</option>
 <option>6/36</option>
 <option>6/24</option>
@@ -484,9 +488,10 @@ Actual clinical optotype calibration depends on the physical display and browser
 </div>
 
 <div class="eye-result">
-<b>Left Eye Result</b>
+<b id="leftDistanceLabel"></b>
+
 <select id="leftDistance">
-<option value="">Select last line read</option>
+<option value="">--</option>
 <option>6/60</option>
 <option>6/36</option>
 <option>6/24</option>
@@ -497,9 +502,7 @@ Actual clinical optotype calibration depends on the physical display and browser
 </select>
 </div>
 
-<button onclick="showSection('near')">
-Next →
-</button>
+<button onclick="showSection('near')" id="distanceNext"></button>
 
 </div>
 </section>
@@ -507,33 +510,26 @@ Next →
 
 <!-- NEAR -->
 <section id="near" class="section">
+
 <div class="card">
 
-<h2>📖 Near Visual Acuity</h2>
+<h2 id="nearTitle"></h2>
 
-<div class="instruction">
-<b>40 cm test</b><br>
-1. Hold the tablet/chart exactly <b>40 cm</b> from the eyes.<br>
-2. Keep the chart at a comfortable eye level.<br>
-3. Cover one eye gently without pressing.<br>
-4. Read the lines from top to bottom.<br>
-5. Repeat with the other eye.
-</div>
+<div class="instruction" id="nearInstruction"></div>
 
-<button class="audio" onclick="speakNear()">🔊 Play Near Instruction</button>
+<button class="audio" onclick="speakNear()">
+🔊 <span id="nearAudio"></span>
+</button>
 
-<div class="marker">
-📍 PATIENT POSITION<br>
-<b>40 CM FROM SCREEN</b><br>
-Hold screen here
-</div>
+<div class="marker" id="nearMarker"></div>
 
 <div id="nearChart"></div>
 
 <div class="eye-result">
-<b>Right Eye Result</b>
+<b id="rightNearLabel"></b>
+
 <select id="rightNear">
-<option value="">Select last line read</option>
+<option value="">--</option>
 <option>N36</option>
 <option>N24</option>
 <option>N18</option>
@@ -545,9 +541,10 @@ Hold screen here
 </div>
 
 <div class="eye-result">
-<b>Left Eye Result</b>
+<b id="leftNearLabel"></b>
+
 <select id="leftNear">
-<option value="">Select last line read</option>
+<option value="">--</option>
 <option>N36</option>
 <option>N24</option>
 <option>N18</option>
@@ -558,7 +555,7 @@ Hold screen here
 </select>
 </div>
 
-<button onclick="showSection('colour')">Next →</button>
+<button onclick="showSection('colour')" id="nearNext"></button>
 
 </div>
 </section>
@@ -566,28 +563,26 @@ Hold screen here
 
 <!-- COLOUR -->
 <section id="colour" class="section">
+
 <div class="card">
 
-<h2>🎨 Colour Vision Screening</h2>
+<h2 id="colourTitle"></h2>
 
-<div class="instruction">
-Look at each plate and enter the number you see.
-Test one eye at a time if required.
-</div>
+<div class="instruction" id="colourInstruction"></div>
 
-<button class="audio" onclick="speakColour()">🔊 Play Colour Instruction</button>
+<button class="audio" onclick="speakColour()">
+🔊 <span id="colourAudio"></span>
+</button>
 
-<p class="small">
-Demonstration Ishihara-style plates. The coloured dots are decorative screening elements; this prototype is not a validated diagnostic colour-vision test.
-</p>
+<p class="small" id="colourNote"></p>
 
 <div class="plate-grid" id="plates"></div>
 
-<button class="success" onclick="checkColour()">Check Answers</button>
+<button class="success" onclick="checkColour()" id="checkColourBtn"></button>
 
 <p id="colourScore"></p>
 
-<button onclick="showSection('amsler')">Next →</button>
+<button onclick="showSection('amsler')" id="colourNext"></button>
 
 </div>
 </section>
@@ -595,18 +590,16 @@ Demonstration Ishihara-style plates. The coloured dots are decorative screening 
 
 <!-- AMSLER -->
 <section id="amsler" class="section">
+
 <div class="card">
 
-<h2>🔲 Amsler Grid</h2>
+<h2 id="amslerTitle"></h2>
 
-<div class="instruction">
-1. Test one eye at a time.<br>
-2. Cover the other eye without pressing.<br>
-3. Keep the centre dot exactly in focus.<br>
-4. Report any missing, distorted, bent or wavy lines.
-</div>
+<div class="instruction" id="amslerInstruction"></div>
 
-<button class="audio" onclick="speakAmsler()">🔊 Play Amsler Instruction</button>
+<button class="audio" onclick="speakAmsler()">
+🔊 <span id="amslerAudio"></span>
+</button>
 
 <div class="amsler">
 <div class="center-dot"></div>
@@ -615,31 +608,32 @@ Demonstration Ishihara-style plates. The coloured dots are decorative screening 
 <div class="grid">
 
 <div>
-<label>Right Eye</label>
+<label id="amslerRightLabel"></label>
+
 <select id="amslerR">
-<option>Normal / no distortion noticed</option>
-<option>Distortion noticed</option>
-<option>Missing area noticed</option>
-<option>Wavy lines noticed</option>
+<option value="normal" id="normalOption"></option>
+<option value="distortion" id="distortionOption"></option>
+<option value="missing" id="missingOption"></option>
+<option value="wavy" id="wavyOption"></option>
 </select>
 </div>
 
 <div>
-<label>Left Eye</label>
+<label id="amslerLeftLabel"></label>
+
 <select id="amslerL">
-<option>Normal / no distortion noticed</option>
-<option>Distortion noticed</option>
-<option>Missing area noticed</option>
-<option>Wavy lines noticed</option>
+<option value="normal" id="normalOption2"></option>
+<option value="distortion" id="distortionOption2"></option>
+<option value="missing" id="missingOption2"></option>
+<option value="wavy" id="wavyOption2"></option>
 </select>
 </div>
 
 </div>
 
-<textarea id="amslerComment"
-placeholder="Additional Amsler observation..."></textarea>
+<textarea id="amslerComment"></textarea>
 
-<button onclick="generateResult()">Generate Screening Summary →</button>
+<button onclick="generateResult()" id="summaryBtn"></button>
 
 </div>
 </section>
@@ -647,19 +641,23 @@ placeholder="Additional Amsler observation..."></textarea>
 
 <!-- RESULT -->
 <section id="result" class="section">
+
 <div class="card">
 
-<h2>🤖 AI-Assisted Screening Summary</h2>
+<h2 id="resultTitle"></h2>
 
 <div id="resultBox" class="report"></div>
 
 <div class="disclaimer">
-<b>Screening only:</b> This rule-based prototype identifies screening flags from entered results. It does not diagnose eye disease.
+<b id="screeningOnlyText"></b>
+<span id="screeningDisclaimer"></span>
 </div>
 
-<button class="audio" onclick="speakResult()">🔊 Read Summary</button>
+<button class="audio" onclick="speakResult()">
+🔊 <span id="readSummary"></span>
+</button>
 
-<button onclick="showSection('report')">View Report →</button>
+<button onclick="showSection('report')" id="viewReport"></button>
 
 </div>
 </section>
@@ -667,15 +665,16 @@ placeholder="Additional Amsler observation..."></textarea>
 
 <!-- REPORT -->
 <section id="report" class="section">
+
 <div class="card">
 
-<h2>📋 Screening Report</h2>
+<h2 id="reportTitle"></h2>
 
 <div id="reportBox" class="report"></div>
 
-<button onclick="window.print()">🖨️ Print / Save Report</button>
+<button onclick="window.print()" id="printBtn"></button>
 
-<button onclick="showSection('home')">🏠 New Screening</button>
+<button onclick="showSection('home')" id="newScreening"></button>
 
 </div>
 </section>
@@ -689,466 +688,511 @@ EyeSmart AI • AI-Assisted Preliminary Eye Screening System
 
 <script>
 
-/* =========================================================
-   LANGUAGE SYSTEM
-========================================================= */
+/* =====================================================
+LANGUAGE DATA
+===================================================== */
 
-const languages = {
+const languages={
 
 en:{
 name:"English",locale:"en-IN",
 welcome:"Welcome to EyeSmart AI",
 welcomeText:"A simple digital platform for preliminary eye screening.",
-languageTitle:"Select Language",
+language:"Select Language",
 listen:"Listen",
 start:"Start Screening",
-patientDetails:"Patient Details",
-name:"Name",
-age:"Age",
-gender:"Gender",
-phone:"Phone",
+important:"Important: ",
+disclaimer:"This prototype is for preliminary screening and educational demonstration. It is not a substitute for a comprehensive eye examination or clinical diagnosis.",
+patient:"Patient Details",
+name:"Name",age:"Age",gender:"Gender",phone:"Phone",
+male:"Male",female:"Female",other:"Other",
 next:"Next",
 symptoms:"Patient-Reported Symptoms",
-affectedEye:"Affected Eye",
+symptomHelp:"Select the symptoms experienced by the patient. For every selected symptom, record the affected eye and since when.",
+saveSymptoms:"Save Symptoms",
+right:"Right Eye",left:"Left Eye",both:"Both Eyes",
+selectEye:"Select eye",
 since:"Since when?",
-history:"Ocular History"
+history:"Ocular History",
+specs:"Spectacles / glasses",
+contact:"Contact lens use",
+surgery:"Previous eye surgery",
+details:"Details",
+detailsPlaceholder:"Enter relevant ocular history...",
+distance:"Distance Visual Acuity",
+distanceAudio:"Play Distance Instruction",
+oneMetre:"1 metre test",
+distanceInstruction:"Stand or sit exactly 1.00 metre from the tablet screen. Keep the screen approximately at eye level. Cover one eye gently without pressing. Read the letters from top to bottom. Repeat with the other eye. Keep browser zoom at 100%.",
+distanceMarker:"📍 PATIENT POSITION<br><b>1.00 METRE FROM SCREEN</b><br>Stand / Sit Here",
+calibration:"Prototype digital chart. Physical optotype size depends on the actual display and browser/device scaling.",
+rightDistance:"Right Eye Result",
+leftDistance:"Left Eye Result",
+lastLine:"Select last line read",
+near:"Near Visual Acuity",
+nearAudio:"Play Near Instruction",
+nearInstruction:"Hold the tablet screen exactly 40 cm from the eyes. Keep the chart at a comfortable eye level. Cover one eye gently without pressing. Read the lines from top to bottom. Repeat with the other eye.",
+nearMarker:"📍 PATIENT POSITION<br><b>40 CM FROM EYES</b><br>Hold screen here",
+rightNear:"Right Eye Result",
+leftNear:"Left Eye Result",
+colour:"Colour Vision Screening",
+colourAudio:"Play Colour Instruction",
+colourInstruction:"Look at each colour plate carefully. Tell the number you see and enter that number in the box below the plate.",
+colourNote:"Demonstration Ishihara-style plates for educational screening. They are not a validated diagnostic colour-vision test.",
+plate:"Plate",
+enterNumber:"Enter number",
+checkColour:"Check Answers",
+colourResult:"Colour screening result",
+amsler:"Amsler Grid",
+amslerAudio:"Play Amsler Instruction",
+amslerInstruction:"Test one eye at a time. Cover the other eye without pressing. Keep the centre red dot in focus. Report any missing, distorted, bent or wavy lines.",
+normal:"Normal / no distortion noticed",
+distortion:"Distortion noticed",
+missing:"Missing area noticed",
+wavy:"Wavy lines noticed",
+additional:"Additional Amsler observation...",
+summary:"Generate Screening Summary",
+result:"AI-Assisted Screening Summary",
+screeningOnly:"Screening only: ",
+screeningDisclaimer:"This rule-based prototype identifies screening flags from entered results. It does not diagnose eye disease.",
+readSummary:"Read Summary",
+viewReport:"View Report",
+report:"Screening Report",
+print:"🖨️ Print / Save Report",
+new:"🏠 New Screening",
+noSymptoms:"None recorded",
+notRecorded:"Not recorded",
+notEntered:"Not entered",
+yes:"Yes",no:"No"
 },
 
 ml:{
 name:"മലയാളം",locale:"ml-IN",
 welcome:"EyeSmart AI-ലേക്ക് സ്വാഗതം",
-welcomeText:"പ്രാഥമിക കണ്ണ് പരിശോധനയ്ക്കുള്ള ഡിജിറ്റൽ സംവിധാനം.",
-languageTitle:"ഭാഷ തിരഞ്ഞെടുക്കുക",
+welcomeText:"പ്രാഥമിക കണ്ണ് പരിശോധനയ്ക്കുള്ള ലളിതമായ ഡിജിറ്റൽ സംവിധാനം.",
+language:"ഭാഷ തിരഞ്ഞെടുക്കുക",
 listen:"കേൾക്കുക",
 start:"പരിശോധന ആരംഭിക്കുക",
-patientDetails:"രോഗിയുടെ വിവരങ്ങൾ",
-name:"പേര്",
-age:"വയസ്സ്",
-gender:"ലിംഗം",
-phone:"ഫോൺ",
+important:"പ്രധാന അറിയിപ്പ്: ",
+disclaimer:"ഇത് പ്രാഥമിക സ്ക്രീനിംഗിനും വിദ്യാഭ്യാസ ആവശ്യങ്ങൾക്കുമുള്ള പ്രോട്ടോടൈപ്പാണ്. സമഗ്രമായ കണ്ണ് പരിശോധനയ്ക്കോ ക്ലിനിക്കൽ രോഗനിർണ്ണയത്തിനോ പകരമല്ല.",
+patient:"രോഗിയുടെ വിവരങ്ങൾ",
+name:"പേര്",age:"വയസ്സ്",gender:"ലിംഗം",phone:"ഫോൺ",
+male:"ആൺ",female:"പെൺ",other:"മറ്റുള്ളത്",
 next:"അടുത്തത്",
 symptoms:"രോഗി പറയുന്ന ലക്ഷണങ്ങൾ",
-affectedEye:"ബാധിച്ച കണ്ണ്",
-since:"എപ്പോൾ മുതൽ?",
-history:"കണ്ണിന്റെ മുൻചരിത്രം"
+symptomHelp:"രോഗിക്ക് അനുഭവപ്പെടുന്ന ലക്ഷണങ്ങൾ തിരഞ്ഞെടുക്കുക. ഓരോ ലക്ഷണത്തിനും ബാധിച്ച കണ്ണും എപ്പോൾ മുതൽ എന്നതും രേഖപ്പെടുത്തുക.",
+saveSymptoms:"ലക്ഷണങ്ങൾ സംരക്ഷിക്കുക",
+right:"വലത് കണ്ണ്",left:"ഇടത് കണ്ണ്",both:"രണ്ട് കണ്ണുകളും",
+selectEye:"കണ്ണ് തിരഞ്ഞെടുക്കുക",since:"എപ്പോൾ മുതൽ?",
+history:"കണ്ണിന്റെ മുൻചരിത്രം",
+specs:"കണ്ണട ഉപയോഗം",contact:"കോൺടാക്ട് ലെൻസ് ഉപയോഗം",surgery:"മുൻ കണ്ണ് ശസ്ത്രക്രിയ",
+details:"വിശദാംശങ്ങൾ",detailsPlaceholder:"കണ്ണിന്റെ മുൻചരിത്രം രേഖപ്പെടുത്തുക...",
+distance:"ദൂര കാഴ്ച പരിശോധന",
+distanceAudio:"ദൂര പരിശോധന നിർദ്ദേശം കേൾക്കുക",
+oneMetre:"1 മീറ്റർ പരിശോധന",
+distanceInstruction:"ടാബ്ലറ്റ് സ്ക്രീനിൽ നിന്ന് കൃത്യമായി 1.00 മീറ്റർ അകലെ ഇരിക്കുകയോ നിൽക്കുകയോ ചെയ്യുക. സ്ക്രീൻ കണ്ണിന്റെ നിരപ്പിൽ വയ്ക്കുക. ഒരു കണ്ണ് അമർത്താതെ മൃദുവായി മൂടുക. മുകളിൽ നിന്ന് താഴേക്ക് അക്ഷരങ്ങൾ വായിക്കുക. ശേഷം മറ്റേ കണ്ണിലും പരിശോധിക്കുക. ബ്രൗസർ സൂം 100% ആയി വയ്ക്കുക.",
+distanceMarker:"📍 രോഗിയുടെ സ്ഥാനം<br><b>സ്ക്രീനിൽ നിന്ന് 1.00 മീറ്റർ</b><br>ഇവിടെ നിൽക്കുക / ഇരിക്കുക",
+calibration:"ഇത് ഒരു ഡിജിറ്റൽ പ്രോട്ടോടൈപ്പ് ചാർട്ടാണ്. യഥാർത്ഥ അക്ഷര വലുപ്പം സ്ക്രീനും ബ്രൗസർ/ഡിവൈസ് സ്കെയിലിംഗും ആശ്രയിച്ചിരിക്കും.",
+rightDistance:"വലത് കണ്ണ് ഫലം",leftDistance:"ഇടത് കണ്ണ് ഫലം",
+lastLine:"വായിച്ച അവസാന വരി തിരഞ്ഞെടുക്കുക",
+near:"സമീപ കാഴ്ച പരിശോധന",nearAudio:"സമീപ പരിശോധന നിർദ്ദേശം കേൾക്കുക",
+nearInstruction:"ടാബ്ലറ്റ് സ്ക്രീൻ കണ്ണുകളിൽ നിന്ന് കൃത്യമായി 40 സെ.മീ അകലെ പിടിക്കുക. ചാർട്ട് കണ്ണിന്റെ സൗകര്യപ്രദമായ നിരപ്പിൽ വയ്ക്കുക. ഒരു കണ്ണ് അമർത്താതെ മൂടുക. മുകളിൽ നിന്ന് താഴേക്ക് വരികൾ വായിക്കുക. ശേഷം മറ്റേ കണ്ണിലും പരിശോധിക്കുക.",
+nearMarker:"📍 രോഗിയുടെ സ്ഥാനം<br><b>കണ്ണുകളിൽ നിന്ന് 40 സെ.മീ</b><br>സ്ക്രീൻ ഇവിടെ പിടിക്കുക",
+rightNear:"വലത് കണ്ണ് ഫലം",leftNear:"ഇടത് കണ്ണ് ഫലം",
+colour:"നിറക്കാഴ്ച പരിശോധന",colourAudio:"നിറക്കാഴ്ച നിർദ്ദേശം കേൾക്കുക",
+colourInstruction:"ഓരോ നിറ പ്ലേറ്റും ശ്രദ്ധിച്ച് നോക്കുക. കാണുന്ന നമ്പർ പറയുകയും പ്ലേറ്റിന് താഴെയുള്ള ബോക്സിൽ രേഖപ്പെടുത്തുകയും ചെയ്യുക.",
+colourNote:"വിദ്യാഭ്യാസപരമായ സ്ക്രീനിംഗിനുള്ള Ishihara-ശൈലി ഡെമോ പ്ലേറ്റുകളാണ്. ഇത് സാധൂകരിച്ച രോഗനിർണ്ണയ പരിശോധനയല്ല.",
+plate:"പ്ലേറ്റ്",enterNumber:"നമ്പർ നൽകുക",checkColour:"ഉത്തരങ്ങൾ പരിശോധിക്കുക",
+colourResult:"നിറക്കാഴ്ച ഫലം",
+amsler:"Amsler ഗ്രിഡ്",amslerAudio:"Amsler നിർദ്ദേശം കേൾക്കുക",
+amslerInstruction:"ഒരു സമയം ഒരു കണ്ണ് പരിശോധിക്കുക. മറ്റേ കണ്ണ് അമർത്താതെ മൂടുക. മധ്യത്തിലെ ചുവന്ന ഡോട്ടിൽ ശ്രദ്ധ കേന്ദ്രീകരിക്കുക. കാണാതായ, വളഞ്ഞ, വികൃതമായ അല്ലെങ്കിൽ തരംഗമായ വരികൾ ഉണ്ടെങ്കിൽ പറയുക.",
+normal:"സാധാരണം / വികൃതി ശ്രദ്ധയിൽപ്പെട്ടില്ല",
+distortion:"വികൃതി ശ്രദ്ധയിൽപ്പെട്ടു",missing:"വരിയുടെ ഭാഗം കാണുന്നില്ല",wavy:"തരംഗമായ വരികൾ",
+additional:"കൂടുതൽ Amsler നിരീക്ഷണം...",
+summary:"സ്ക്രീനിംഗ് സംഗ്രഹം തയ്യാറാക്കുക",
+result:"AI സഹായത്തോടെയുള്ള സ്ക്രീനിംഗ് സംഗ്രഹം",
+screeningOnly:"സ്ക്രീനിംഗ് മാത്രം: ",
+screeningDisclaimer:"നൽകിയ ഫലങ്ങളിൽ നിന്ന് ഈ rule-based പ്രോട്ടോടൈപ്പ് സ്ക്രീനിംഗ് സൂചനകൾ കണ്ടെത്തുന്നു. ഇത് കണ്ണുരോഗം നിർണ്ണയിക്കുന്നില്ല.",
+readSummary:"സംഗ്രഹം കേൾക്കുക",viewReport:"റിപ്പോർട്ട് കാണുക",
+report:"സ്ക്രീനിംഗ് റിപ്പോർട്ട്",print:"🖨️ പ്രിന്റ് / റിപ്പോർട്ട് സേവ് ചെയ്യുക",new:"🏠 പുതിയ പരിശോധന",
+noSymptoms:"ഒന്നും രേഖപ്പെടുത്തിയിട്ടില്ല",notRecorded:"രേഖപ്പെടുത്തിയിട്ടില്ല",notEntered:"നൽകിയിട്ടില്ല",
+yes:"അതെ",no:"ഇല്ല"
 },
 
 hi:{
 name:"हिन्दी",locale:"hi-IN",
 welcome:"EyeSmart AI में आपका स्वागत है",
-welcomeText:"प्रारंभिक आंखों की जांच के लिए डिजिटल प्रणाली।",
-languageTitle:"भाषा चुनें",
-listen:"सुनें",
-start:"जांच शुरू करें",
-patientDetails:"मरीज की जानकारी",
-name:"नाम",
-age:"उम्र",
-gender:"लिंग",
-phone:"फोन",
-next:"अगला",
+welcomeText:"प्रारंभिक आंखों की जांच के लिए सरल डिजिटल प्रणाली।",
+language:"भाषा चुनें",listen:"सुनें",start:"जांच शुरू करें",
+important:"महत्वपूर्ण: ",
+disclaimer:"यह प्रारंभिक स्क्रीनिंग और शैक्षिक प्रदर्शन के लिए एक प्रोटोटाइप है। यह पूर्ण आंखों की जांच या चिकित्सीय निदान का विकल्प नहीं है।",
+patient:"मरीज की जानकारी",name:"नाम",age:"उम्र",gender:"लिंग",phone:"फोन",
+male:"पुरुष",female:"महिला",other:"अन्य",next:"अगला",
 symptoms:"मरीज द्वारा बताए गए लक्षण",
-affectedEye:"प्रभावित आंख",
-since:"कब से?",
-history:"आंखों का इतिहास"
-},
-
-bn:{
-name:"বাংলা",locale:"bn-IN",
-welcome:"EyeSmart AI-তে স্বাগতম",
-welcomeText:"প্রাথমিক চোখের স্ক্রিনিংয়ের জন্য ডিজিটাল ব্যবস্থা।",
-languageTitle:"ভাষা নির্বাচন করুন",
-listen:"শুনুন",
-start:"স্ক্রিনিং শুরু করুন",
-patientDetails:"রোগীর তথ্য",
-name:"নাম",
-age:"বয়স",
-gender:"লিঙ্গ",
-phone:"ফোন",
-next:"পরবর্তী",
-symptoms:"রোগীর বলা উপসর্গ",
-affectedEye:"প্রভাবিত চোখ",
-since:"কখন থেকে?",
-history:"চোখের ইতিহাস"
-},
-
-te:{
-name:"తెలుగు",locale:"te-IN",
-welcome:"EyeSmart AI కి స్వాగతం",
-welcomeText:"ప్రాథమిక కంటి పరీక్ష కోసం డిజిటల్ వ్యవస్థ.",
-languageTitle:"భాషను ఎంచుకోండి",
-listen:"వినండి",
-start:"పరీక్ష ప్రారంభించండి",
-patientDetails:"రోగి వివరాలు",
-name:"పేరు",
-age:"వయస్సు",
-gender:"లింగం",
-phone:"ఫోన్",
-next:"తదుపరి",
-symptoms:"రోగి తెలిపిన లక్షణాలు",
-affectedEye:"ప్రభావిత కన్ను",
-since:"ఎప్పటి నుండి?",
-history:"కంటి చరిత్ర"
-},
-
-mr:{
-name:"मराठी",locale:"mr-IN",
-welcome:"EyeSmart AI मध्ये स्वागत आहे",
-welcomeText:"प्राथमिक डोळ्यांच्या तपासणीसाठी डिजिटल प्रणाली.",
-languageTitle:"भाषा निवडा",
-listen:"ऐका",
-start:"तपासणी सुरू करा",
-patientDetails:"रुग्णाची माहिती",
-name:"नाव",
-age:"वय",
-gender:"लिंग",
-phone:"फोन",
-next:"पुढे",
-symptoms:"रुग्णाने सांगितलेली लक्षणे",
-affectedEye:"प्रभावित डोळा",
-since:"कधीपासून?",
-history:"डोळ्यांचा इतिहास"
+symptomHelp:"मरीज के लक्षण चुनें। प्रत्येक लक्षण के लिए प्रभावित आंख और कब से है यह दर्ज करें।",
+saveSymptoms:"लक्षण सहेजें",right:"दाहिनी आंख",left:"बाईं आंख",both:"दोनों आंखें",
+selectEye:"आंख चुनें",since:"कब से?",history:"आंखों का इतिहास",
+specs:"चश्मे का उपयोग",contact:"कॉन्टैक्ट लेंस का उपयोग",surgery:"पहले आंख की सर्जरी",
+details:"विवरण",detailsPlaceholder:"आंखों का संबंधित इतिहास लिखें...",
+distance:"दूर दृष्टि जांच",distanceAudio:"दूर दृष्टि निर्देश सुनें",
+oneMetre:"1 मीटर जांच",
+distanceInstruction:"स्क्रीन से ठीक 1.00 मीटर दूर बैठें या खड़े हों। स्क्रीन आंखों के स्तर पर रखें। एक आंख को बिना दबाव के ढकें। ऊपर से नीचे तक अक्षर पढ़ें। दूसरी आंख से दोहराएं। ब्राउज़र ज़ूम 100% रखें।",
+distanceMarker:"📍 मरीज की स्थिति<br><b>स्क्रीन से 1.00 मीटर</b><br>यहां खड़े/बैठें",
+calibration:"यह डिजिटल प्रोटोटाइप चार्ट है। वास्तविक अक्षर का आकार स्क्रीन और डिवाइस/ब्राउज़र स्केलिंग पर निर्भर करता है।",
+rightDistance:"दाहिनी आंख का परिणाम",leftDistance:"बाईं आंख का परिणाम",lastLine:"पढ़ी गई अंतिम पंक्ति चुनें",
+near:"निकट दृष्टि जांच",nearAudio:"निकट दृष्टि निर्देश सुनें",
+nearInstruction:"स्क्रीन को आंखों से ठीक 40 सेमी दूर रखें। एक आंख को बिना दबाव के ढकें। ऊपर से नीचे तक पंक्तियां पढ़ें। दूसरी आंख से दोहराएं।",
+nearMarker:"📍 मरीज की स्थिति<br><b>आंखों से 40 सेमी</b><br>स्क्रीन यहां रखें",
+rightNear:"दाहिनी आंख का परिणाम",leftNear:"बाईं आंख का परिणाम",
+colour:"रंग दृष्टि जांच",colourAudio:"रंग दृष्टि निर्देश सुनें",
+colourInstruction:"प्रत्येक रंग प्लेट को ध्यान से देखें। दिखाई देने वाली संख्या बताएं और नीचे दिए बॉक्स में लिखें।",
+colourNote:"ये शैक्षिक प्रदर्शन के लिए Ishihara-शैली की डेमो प्लेटें हैं। यह मान्य निदान परीक्षण नहीं है।",
+plate:"प्लेट",enterNumber:"संख्या लिखें",checkColour:"उत्तर जांचें",colourResult:"रंग दृष्टि परिणाम",
+amsler:"Amsler ग्रिड",amslerAudio:"Amsler निर्देश सुनें",
+amslerInstruction:"एक समय में एक आंख जांचें। दूसरी आंख को बिना दबाव के ढकें। बीच के लाल बिंदु को देखें। गायब, टेढ़ी, विकृत या लहरदार रेखाओं की सूचना दें।",
+normal:"सामान्य / कोई विकृति नहीं",distortion:"विकृति दिखाई दी",missing:"भाग गायब दिखाई दिया",wavy:"लहरदार रेखाएं",
+additional:"अतिरिक्त Amsler टिप्पणी...",summary:"स्क्रीनिंग सारांश बनाएं",
+result:"AI-सहायता प्राप्त स्क्रीनिंग सारांश",screeningOnly:"केवल स्क्रीनिंग: ",
+screeningDisclaimer:"यह rule-based प्रोटोटाइप दर्ज किए गए परिणामों से स्क्रीनिंग संकेत बताता है। यह आंखों की बीमारी का निदान नहीं करता।",
+readSummary:"सारांश सुनें",viewReport:"रिपोर्ट देखें",report:"स्क्रीनिंग रिपोर्ट",
+print:"🖨️ प्रिंट / रिपोर्ट सेव करें",new:"🏠 नई जांच",
+noSymptoms:"कोई जानकारी नहीं",notRecorded:"दर्ज नहीं",notEntered:"नहीं दिया गया",yes:"हां",no:"नहीं"
 },
 
 ta:{
 name:"தமிழ்",locale:"ta-IN",
 welcome:"EyeSmart AI-க்கு வரவேற்கிறோம்",
-welcomeText:"முதற்கட்ட கண் பரிசோதனைக்கான டிஜிட்டல் அமைப்பு.",
-languageTitle:"மொழியைத் தேர்ந்தெடுக்கவும்",
-listen:"கேளுங்கள்",
-start:"பரிசோதனையைத் தொடங்கவும்",
-patientDetails:"நோயாளி விவரங்கள்",
-name:"பெயர்",
-age:"வயது",
-gender:"பாலினம்",
-phone:"தொலைபேசி",
-next:"அடுத்து",
+welcomeText:"முதற்கட்ட கண் பரிசோதனைக்கான எளிய டிஜிட்டல் அமைப்பு.",
+language:"மொழியைத் தேர்ந்தெடுக்கவும்",listen:"கேளுங்கள்",start:"பரிசோதனையைத் தொடங்கவும்",
+important:"முக்கியம்: ",
+disclaimer:"இது முதற்கட்ட திரையிடல் மற்றும் கல்வி பயன்பாட்டிற்கான மாதிரி. முழுமையான கண் பரிசோதனை அல்லது மருத்துவ நோயறிதலுக்கு மாற்றாகாது.",
+patient:"நோயாளி விவரங்கள்",name:"பெயர்",age:"வயது",gender:"பாலினம்",phone:"தொலைபேசி",
+male:"ஆண்",female:"பெண்",other:"மற்றவை",next:"அடுத்து",
 symptoms:"நோயாளி கூறும் அறிகுறிகள்",
-affectedEye:"பாதிக்கப்பட்ட கண்",
-since:"எப்போது முதல்?",
-history:"கண் வரலாறு"
+symptomHelp:"நோயாளிக்கு உள்ள அறிகுறிகளைத் தேர்ந்தெடுக்கவும். ஒவ்வொரு அறிகுறிக்கும் பாதிக்கப்பட்ட கண் மற்றும் எப்போது முதல் என்பதை பதிவு செய்யவும்.",
+saveSymptoms:"அறிகுறிகளைச் சேமிக்கவும்",right:"வலது கண்",left:"இடது கண்",both:"இரு கண்களும்",
+selectEye:"கண்ணைத் தேர்ந்தெடுக்கவும்",since:"எப்போது முதல்?",history:"கண் வரலாறு",
+specs:"கண்ணாடி பயன்பாடு",contact:"காண்டாக்ட் லென்ஸ் பயன்பாடு",surgery:"முந்தைய கண் அறுவை சிகிச்சை",
+details:"விவரங்கள்",detailsPlaceholder:"கண் வரலாற்றை உள்ளிடவும்...",
+distance:"தூர பார்வை பரிசோதனை",distanceAudio:"தூர பரிசோதனை வழிமுறையை கேளுங்கள்",
+oneMetre:"1 மீட்டர் பரிசோதனை",
+distanceInstruction:"திரையிலிருந்து சரியாக 1.00 மீட்டர் தூரத்தில் உட்காரவும் அல்லது நிற்கவும். திரையை கண் மட்டத்தில் வைக்கவும். ஒரு கண்ணை அழுத்தாமல் மூடவும். மேலிருந்து கீழ் வரை எழுத்துகளைப் படிக்கவும். மற்ற கண்ணிலும் மீண்டும் செய்யவும். உலாவி zoom 100% ஆக இருக்க வேண்டும்.",
+distanceMarker:"📍 நோயாளியின் நிலை<br><b>திரையிலிருந்து 1.00 மீட்டர்</b><br>இங்கே நிற்கவும் / உட்காரவும்",
+calibration:"இது ஒரு டிஜிட்டல் மாதிரி அட்டவணை. உண்மையான எழுத்து அளவு திரை மற்றும் சாதன அளவீட்டைப் பொறுத்தது.",
+rightDistance:"வலது கண் முடிவு",leftDistance:"இடது கண் முடிவு",lastLine:"படித்த கடைசி வரியைத் தேர்ந்தெடுக்கவும்",
+near:"அருகுப் பார்வை பரிசோதனை",nearAudio:"அருகுப் பார்வை வழிமுறையை கேளுங்கள்",
+nearInstruction:"திரையை கண்களிலிருந்து சரியாக 40 செ.மீ தூரத்தில் வைத்திருக்கவும். ஒரு கண்ணை அழுத்தாமல் மூடவும். மேலிருந்து கீழ் வரை வரிகளைப் படிக்கவும். மற்ற கண்ணிலும் செய்யவும்.",
+nearMarker:"📍 நோயாளியின் நிலை<br><b>கண்களிலிருந்து 40 செ.மீ</b><br>திரையை இங்கே வைத்திருக்கவும்",
+rightNear:"வலது கண் முடிவு",leftNear:"இடது கண் முடிவு",
+colour:"நிற பார்வை பரிசோதனை",colourAudio:"நிற பார்வை வழிமுறையை கேளுங்கள்",
+colourInstruction:"ஒவ்வொரு நிறப் பலகையையும் கவனமாகப் பார்க்கவும். தெரியும் எண்ணைச் சொல்லி கீழே உள்ள பெட்டியில் உள்ளிடவும்.",
+colourNote:"கல்வி நோக்கத்திற்கான Ishihara-பாணி மாதிரி பலகைகள். இது சரிபார்க்கப்பட்ட நோயறிதல் பரிசோதனை அல்ல.",
+plate:"பலகை",enterNumber:"எண்ணை உள்ளிடவும்",checkColour:"பதில்களைச் சரிபார்க்கவும்",colourResult:"நிற பார்வை முடிவு",
+amsler:"Amsler grid",amslerAudio:"Amsler வழிமுறையை கேளுங்கள்",
+amslerInstruction:"ஒரு நேரத்தில் ஒரு கண்ணைச் சோதிக்கவும். மற்ற கண்ணை அழுத்தாமல் மூடவும். நடுவிலுள்ள சிவப்பு புள்ளியைப் பார்க்கவும். காணாமல் போன, வளைந்த அல்லது அலைபோன்ற கோடுகள் இருந்தால் தெரிவிக்கவும்.",
+normal:"இயல்பு / மாற்றம் இல்லை",distortion:"மாற்றம் காணப்பட்டது",missing:"பகுதி காணவில்லை",wavy:"அலைபோன்ற கோடுகள்",
+additional:"கூடுதல் Amsler குறிப்பு...",summary:"திரையிடல் சுருக்கத்தை உருவாக்கவும்",
+result:"AI உதவியுடன் திரையிடல் சுருக்கம்",screeningOnly:"திரையிடல் மட்டும்: ",
+screeningDisclaimer:"இந்த rule-based மாதிரி பதிவுசெய்யப்பட்ட முடிவுகளில் இருந்து திரையிடல் அறிகுறிகளை காட்டுகிறது. இது கண் நோயை கண்டறியாது.",
+readSummary:"சுருக்கத்தை கேளுங்கள்",viewReport:"அறிக்கையைப் பார்க்கவும்",report:"திரையிடல் அறிக்கை",
+print:"🖨️ அச்சிடு / அறிக்கையை சேமிக்கவும்",new:"🏠 புதிய பரிசோதனை",
+noSymptoms:"பதிவு இல்லை",notRecorded:"பதிவு செய்யப்படவில்லை",notEntered:"உள்ளிடப்படவில்லை",yes:"ஆம்",no:"இல்லை"
 },
 
-gu:{
-name:"ગુજરાતી",locale:"gu-IN",
-welcome:"EyeSmart AI માં આપનું સ્વાગત છે",
-welcomeText:"પ્રાથમિક આંખની તપાસ માટે ડિજિટલ સિસ્ટમ.",
-languageTitle:"ભાષા પસંદ કરો",
-listen:"સાંભળો",
-start:"તપાસ શરૂ કરો",
-patientDetails:"દર્દીની માહિતી",
-name:"નામ",
-age:"ઉંમર",
-gender:"લિંગ",
-phone:"ફોન",
-next:"આગળ",
-symptoms:"દર્દીએ જણાવેલા લક્ષણો",
-affectedEye:"અસરગ્રસ્ત આંખ",
-since:"ક્યારેથી?",
-history:"આંખનો ઇતિહાસ"
-},
-
-kn:{
-name:"ಕನ್ನಡ",locale:"kn-IN",
-welcome:"EyeSmart AI ಗೆ ಸ್ವಾಗತ",
-welcomeText:"ಪ್ರಾಥಮಿಕ ಕಣ್ಣಿನ ತಪಾಸಣೆಗೆ ಡಿಜಿಟಲ್ ವ್ಯವಸ್ಥೆ.",
-languageTitle:"ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ",
-listen:"ಕೇಳಿ",
-start:"ತಪಾಸಣೆ ಪ್ರಾರಂಭಿಸಿ",
-patientDetails:"ರೋಗಿಯ ವಿವರಗಳು",
-name:"ಹೆಸರು",
-age:"ವಯಸ್ಸು",
-gender:"ಲಿಂಗ",
-phone:"ಫೋನ್",
-next:"ಮುಂದೆ",
-symptoms:"ರೋಗಿ ತಿಳಿಸಿದ ಲಕ್ಷಣಗಳು",
-affectedEye:"ಬಾಧಿತ ಕಣ್ಣು",
-since:"ಯಾವಾಗಿನಿಂದ?",
-history:"ಕಣ್ಣಿನ ಇತಿಹಾಸ"
-},
-
-or:{
-name:"ଓଡ଼ିଆ",locale:"or-IN",
-welcome:"EyeSmart AI କୁ ସ୍ୱାଗତ",
-welcomeText:"ପ୍ରାଥମିକ ଚକ୍ଷୁ ପରୀକ୍ଷା ପାଇଁ ଡିଜିଟାଲ୍ ବ୍ୟବସ୍ଥା।",
-languageTitle:"ଭାଷା ବାଛନ୍ତୁ",
-listen:"ଶୁଣନ୍ତୁ",
-start:"ପରୀକ୍ଷା ଆରମ୍ଭ କରନ୍ତୁ",
-patientDetails:"ରୋଗୀଙ୍କ ବିବରଣୀ",
-name:"ନାମ",
-age:"ବୟସ",
-gender:"ଲିଙ୍ଗ",
-phone:"ଫୋନ",
-next:"ପରବର୍ତ୍ତୀ",
-symptoms:"ରୋଗୀ କହିଥିବା ଲକ୍ଷଣ",
-affectedEye:"ପ୍ରଭାବିତ ଆଖି",
-since:"କେବେଠାରୁ?",
-history:"ଆଖିର ଇତିହାସ"
-},
-
-pa:{
-name:"ਪੰਜਾਬੀ",locale:"pa-IN",
-welcome:"EyeSmart AI ਵਿੱਚ ਜੀ ਆਇਆਂ ਨੂੰ",
-welcomeText:"ਮੁੱਢਲੀ ਅੱਖਾਂ ਦੀ ਜਾਂਚ ਲਈ ਡਿਜ਼ੀਟਲ ਪ੍ਰਣਾਲੀ।",
-languageTitle:"ਭਾਸ਼ਾ ਚੁਣੋ",
-listen:"ਸੁਣੋ",
-start:"ਜਾਂਚ ਸ਼ੁਰੂ ਕਰੋ",
-patientDetails:"ਮਰੀਜ਼ ਦੀ ਜਾਣਕਾਰੀ",
-name:"ਨਾਮ",
-age:"ਉਮਰ",
-gender:"ਲਿੰਗ",
-phone:"ਫੋਨ",
-next:"ਅੱਗੇ",
-symptoms:"ਮਰੀਜ਼ ਵੱਲੋਂ ਦੱਸੇ ਲੱਛਣ",
-affectedEye:"ਪ੍ਰਭਾਵਿਤ ਅੱਖ",
-since:"ਕਦੋਂ ਤੋਂ?",
-history:"ਅੱਖਾਂ ਦਾ ਇਤਿਹਾਸ"
-},
-
-as:{
-name:"অসমীয়া",locale:"as-IN",
-welcome:"EyeSmart AI লৈ স্বাগতম",
-welcomeText:"প্ৰাথমিক চকু পৰীক্ষাৰ বাবে ডিজিটেল ব্যৱস্থা।",
-languageTitle:"ভাষা বাছনি কৰক",
-listen:"শুনক",
-start:"পৰীক্ষা আৰম্ভ কৰক",
-patientDetails:"ৰোগীৰ তথ্য",
-name:"নাম",
-age:"বয়স",
-gender:"লিংগ",
-phone:"ফোন",
-next:"পৰৱৰ্তী",
-symptoms:"ৰোগীয়ে জনোৱা লক্ষণ",
-affectedEye:"প্ৰভাৱিত চকু",
-since:"কেতিয়াৰ পৰা?",
-history:"চকুৰ ইতিহাস"
-},
-
-mai:{
-name:"मैथिली",locale:"mai-IN",
-welcome:"EyeSmart AI मे स्वागत अछि",
-welcomeText:"प्रारम्भिक आँखि जाँचक लेल डिजिटल प्रणाली।",
-languageTitle:"भाषा चुनू",
-listen:"सुनू",
-start:"जाँच शुरू करू",
-patientDetails:"रोगीक जानकारी",
-name:"नाम",
-age:"उम्र",
-gender:"लिंग",
-phone:"फोन",
-next:"आगाँ",
-symptoms:"रोगी द्वारा कहल लक्षण",
-affectedEye:"प्रभावित आँखि",
-since:"कखन सँ?",
-history:"आँखिक इतिहास"
-},
-
-sa:{
-name:"संस्कृतम्",locale:"sa-IN",
-welcome:"EyeSmart AI मध्ये स्वागतम्",
-welcomeText:"प्राथमिक नेत्रपरीक्षणाय डिजिटल व्यवस्था।",
-languageTitle:"भाषां चिनुत",
-listen:"शृणुत",
-start:"परीक्षणं आरभत",
-patientDetails:"रोगिणः विवरणम्",
-name:"नाम",
-age:"वयः",
-gender:"लिङ्गम्",
-phone:"दूरभाषः",
-next:"अग्रिमम्",
-symptoms:"रोगिणा उक्तानि लक्षणानि",
-affectedEye:"प्रभावितं नेत्रम्",
-since:"कदा आरभ्य?",
-history:"नेत्रवृत्तान्तः"
-},
-
-ur:{
-name:"اردو",locale:"ur-IN",
-welcome:"EyeSmart AI میں خوش آمدید",
-welcomeText:"آنکھوں کی ابتدائی جانچ کے لیے ڈیجیٹل نظام۔",
-languageTitle:"زبان منتخب کریں",
-listen:"سنیں",
-start:"جانچ شروع کریں",
-patientDetails:"مریض کی معلومات",
-name:"نام",
-age:"عمر",
-gender:"جنس",
-phone:"فون",
-next:"اگلا",
-symptoms:"مریض کی بتائی ہوئی علامات",
-affectedEye:"متاثرہ آنکھ",
-since:"کب سے؟",
-history:"آنکھوں کی سابقہ معلومات"
-},
-
-kok:{
-name:"कोंकणी",locale:"kok-IN",
-welcome:"EyeSmart AI क स्वागत",
-welcomeText:"प्राथमिक डोळ्यांच्या तपासणी खातीर डिजिटल प्रणाली.",
-languageTitle:"भाशो निवडात",
-listen:"आयकात",
-start:"तपासणी सुरू करात",
-patientDetails:"रुग्णाची माहिती",
-name:"नांव",
-age:"वय",
-gender:"लिंग",
-phone:"फोन",
-next:"फुडलें",
-symptoms:"रुग्णान सांगिल्ले लक्षण",
-affectedEye:"प्रभावीत डोळो",
-since:"केन्ना सावन?",
-history:"डोळ्यांचो इतिहास"
-},
-
-ne:{
-name:"नेपाली",locale:"ne-NP",
-welcome:"EyeSmart AI मा स्वागत छ",
-welcomeText:"प्रारम्भिक आँखा परीक्षणका लागि डिजिटल प्रणाली।",
-languageTitle:"भाषा छान्नुहोस्",
-listen:"सुन्नुहोस्",
-start:"परीक्षण सुरु गर्नुहोस्",
-patientDetails:"बिरामीको विवरण",
-name:"नाम",
-age:"उमेर",
-gender:"लिङ्ग",
-phone:"फोन",
-next:"अर्को",
-symptoms:"बिरामीले बताएका लक्षणहरू",
-affectedEye:"प्रभावित आँखा",
-since:"कहिलेदेखि?",
-history:"आँखाको इतिहास"
-},
-
-sd:{
-name:"سنڌي",locale:"sd-IN",
-welcome:"EyeSmart AI ۾ ڀليڪار",
-welcomeText:"اکين جي ابتدائي جاچ لاءِ ڊجيٽل نظام.",
-languageTitle:"ٻولي چونڊيو",
-listen:"ٻڌو",
-start:"جاچ شروع ڪريو",
-patientDetails:"مريض جي معلومات",
-name:"نالو",
-age:"عمر",
-gender:"جنس",
-phone:"فون",
-next:"اڳتي",
-symptoms:"مريض پاران ٻڌايل علامتون",
-affectedEye:"متاثر اک",
-since:"ڪڏهن کان؟",
-history:"اکين جي تاريخ"
-},
-
-doi:{
-name:"डोगरी",locale:"doi-IN",
-welcome:"EyeSmart AI च स्वागत ऐ",
-welcomeText:"प्राथमिक अक्खें दी जांच लेई डिजिटल प्रणाली।",
-languageTitle:"भाशा चुनो",
-listen:"सुनो",
-start:"जांच शुरू करो",
-patientDetails:"मरीज दी जानकारी",
-name:"नां",
-age:"उम्र",
-gender:"लिंग",
-phone:"फोन",
-next:"अग्गें",
-symptoms:"मरीज आसेआ दस्से गेदे लक्षण",
-affectedEye:"प्रभावित अक्ख",
-since:"कदूं थमां?",
-history:"अक्खें दा इतिहास"
-},
-
-ks:{
-name:"कॉशुर / کٲشُر",locale:"ks-IN",
-welcome:"EyeSmart AI منز خوش آمدید",
-welcomeText:"ابتدٲیی اکھٕچ جانچ خٲطرٕ ڈیجیٹل نظام۔",
-languageTitle:"زبان ژارن",
-listen:"سُنو",
-start:"جانچ شروع کریو",
-patientDetails:"مریضُک تفصیل",
-name:"ناو",
-age:"عمر",
-gender:"جنس",
-phone:"فون",
-next:"پَتہ",
-symptoms:"مریض طرفہ بیان کرنہ آمت علامات",
-affectedEye:"متاثر اکھ",
-since:"کتھ پٮ۪ٹھ؟",
-history:"اکھٕچ تاریخ"
-},
-
-mni:{
-name:"মৈতৈলোন্",locale:"mni-IN",
-welcome:"EyeSmart AI-দা তরাম্না",
-welcomeText:"মীৎযেং অমসুং চক্ষু screening-গী digital system.",
-languageTitle:"লোন শেমজবা",
-listen:"তারাম্না",
-start:"Screening হৌরো",
-patientDetails:"Patient-কি information",
-name:"মমিং",
-age:"চহী",
-gender:"Gender",
-phone:"Phone",
-next:"মথং",
-symptoms:"Patient-না হায়রিবা symptoms",
-affectedEye:"Affected eye",
-since:"করিগুম্বা নুংশি?",
-history:"চক্ষু history"
-},
-
-brx:{
-name:"बड़ो",locale:"brx-IN",
-welcome:"EyeSmart AI आव गोजोन",
-welcomeText:"सिगांनि नायनायनि गोनांनि डिजिटल सिस्टम।",
-languageTitle:"राव सायख",
-listen:"खोन्थाइ",
-start:"नायनाय जागाय",
-patientDetails:"रोगीनि फोरमायथि",
-name:"मुं",
-age:"बोसोर",
-gender:"लिंग",
-phone:"फोन",
-next:"उनाव",
-symptoms:"रोगीनि फोसावनाय लक्षण",
-affectedEye:"जेंनाय मेगोन",
-since:"बेखायनो?",
-history:"मेगोननि इतिहास"
-},
-
-sat:{
-name:"ᱥᱟᱱᱛᱟᱲᱤ",locale:"sat-IN",
-welcome:"EyeSmart AI ᱨᱮ ᱡᱚᱦᱟᱨ",
-welcomeText:"ᱢᱩᱬ ᱠᱟᱹᱱᱟ ᱧᱮᱞ ᱞᱟᱹᱜᱤᱫ ᱰᱤᱡᱤᱴᱟᱞ ᱥᱤᱥᱴᱮᱢ",
-languageTitle:"ᱯᱟᱹᱨᱥᱤ ᱵᱟᱪᱷᱱᱟ",
-listen:"ᱚᱱᱚᱞ ᱢᱮ",
-start:"ᱥᱠᱨᱤᱱᱤᱝ ᱮᱦᱚᱵ ᱢᱮ",
-patientDetails:"ᱨᱩᱜᱤ ᱵᱤᱵᱨᱚᱱ",
-name:"ᱧᱩᱛᱩᱢ",
-age:"ᱵᱚᱭᱚᱥ",
-gender:"ᱡᱟᱛ",
-phone:"ᱯᱷᱳᱱ",
-next:"ᱛᱟᱭᱚᱢ",
-symptoms:"ᱨᱩᱜᱤ ᱫᱟᱲᱮ ᱞᱟᱹᱜᱤᱫ ᱞᱟᱹᱠᱷᱟᱱ",
-affectedEye:"ᱵᱟᱹᱫᱷ ᱢᱮᱜᱷ",
-since:"ᱛᱤᱥ ᱦᱚᱸᱛᱮ?",
-history:"ᱢᱮᱜᱷ ᱦᱤᱥᱴᱨᱤ"
+te:{
+name:"తెలుగు",locale:"te-IN",
+welcome:"EyeSmart AI కి స్వాగతం",
+welcomeText:"ప్రాథమిక కంటి పరీక్ష కోసం సరళమైన డిజిటల్ వ్యవస్థ.",
+language:"భాషను ఎంచుకోండి",listen:"వినండి",start:"పరీక్ష ప్రారంభించండి",
+important:"ముఖ్యమైనది: ",
+disclaimer:"ఇది ప్రాథమిక స్క్రీనింగ్ మరియు విద్యా ప్రదర్శన కోసం రూపొందించిన నమూనా. పూర్తి కంటి పరీక్ష లేదా వైద్య నిర్ధారణకు ప్రత్యామ్నాయం కాదు.",
+patient:"రోగి వివరాలు",name:"పేరు",age:"వయస్సు",gender:"లింగం",phone:"ఫోన్",
+male:"పురుషుడు",female:"స్త్రీ",other:"ఇతర",next:"తదుపరి",
+symptoms:"రోగి తెలిపిన లక్షణాలు",
+symptomHelp:"రోగికి ఉన్న లక్షణాలను ఎంచుకోండి. ప్రతి లక్షణానికి ప్రభావితమైన కన్ను మరియు ఎప్పటి నుండి ఉందో నమోదు చేయండి.",
+saveSymptoms:"లక్షణాలను సేవ్ చేయండి",right:"కుడి కన్ను",left:"ఎడమ కన్ను",both:"రెండు కళ్ళు",
+selectEye:"కన్నును ఎంచుకోండి",since:"ఎప్పటి నుండి?",history:"కంటి చరిత్ర",
+specs:"కళ్లద్దాల ఉపయోగం",contact:"కాంటాక్ట్ లెన్స్ ఉపయోగం",surgery:"మునుపటి కంటి శస్త్రచికిత్స",
+details:"వివరాలు",detailsPlaceholder:"కంటి చరిత్రను నమోదు చేయండి...",
+distance:"దూర దృష్టి పరీక్ష",distanceAudio:"దూర పరీక్ష సూచనలు వినండి",
+oneMetre:"1 మీటర్ పరీక్ష",
+distanceInstruction:"స్క్రీన్ నుండి ఖచ్చితంగా 1.00 మీటర్ దూరంలో కూర్చోండి లేదా నిలబడండి. స్క్రీన్ కంటి స్థాయిలో ఉంచండి. ఒక కన్నును ఒత్తిడి లేకుండా మూసుకోండి. పై నుండి కిందికి అక్షరాలను చదవండి. మరొక కన్నుతో పునరావృతం చేయండి. బ్రౌజర్ zoom 100% ఉంచండి.",
+distanceMarker:"📍 రోగి స్థానం<br><b>స్క్రీన్ నుండి 1.00 మీటర్</b><br>ఇక్కడ నిలబడండి / కూర్చోండి",
+calibration:"ఇది డిజిటల్ నమూనా చార్ట్. నిజమైన అక్షర పరిమాణం స్క్రీన్ మరియు పరికర స్కేలింగ్‌పై ఆధారపడి ఉంటుంది.",
+rightDistance:"కుడి కన్ను ఫలితం",leftDistance:"ఎడమ కన్ను ఫలితం",lastLine:"చదివిన చివరి లైన్ ఎంచుకోండి",
+near:"సమీప దృష్టి పరీక్ష",nearAudio:"సమీప పరీక్ష సూచనలు వినండి",
+nearInstruction:"స్క్రీన్‌ను కళ్ల నుండి ఖచ్చితంగా 40 సెం.మీ దూరంలో ఉంచండి. ఒక కన్నును ఒత్తిడి లేకుండా మూసుకోండి. పై నుండి కిందికి చదవండి. మరొక కన్నుతో పునరావృతం చేయండి.",
+nearMarker:"📍 రోగి స్థానం<br><b>కళ్ల నుండి 40 సెం.మీ</b><br>స్క్రీన్‌ను ఇక్కడ ఉంచండి",
+rightNear:"కుడి కన్ను ఫలితం",leftNear:"ఎడమ కన్ను ఫలితం",
+colour:"రంగు దృష్టి పరీక్ష",colourAudio:"రంగు దృష్టి సూచనలు వినండి",
+colourInstruction:"ప్రతి రంగు ప్లేట్‌ను జాగ్రత్తగా చూడండి. కనిపించే సంఖ్యను చెప్పి క్రింది బాక్స్‌లో నమోదు చేయండి.",
+colourNote:"విద్యా ప్రదర్శన కోసం Ishihara-శైలి నమూనా ప్లేట్లు. ఇది ధృవీకరించబడిన నిర్ధారణ పరీక్ష కాదు.",
+plate:"ప్లేట్",enterNumber:"సంఖ్య నమోదు చేయండి",checkColour:"సమాధానాలు తనిఖీ చేయండి",colourResult:"రంగు దృష్టి ఫలితం",
+amsler:"Amsler గ్రిడ్",amslerAudio:"Amsler సూచనలు వినండి",
+amslerInstruction:"ఒక్కసారి ఒక కన్ను పరీక్షించండి. మరొక కన్నును ఒత్తిడి లేకుండా మూసుకోండి. మధ్యలోని ఎరుపు బిందువును చూడండి. కనిపించని, వంకర, వక్రీకృత లేదా అలల రేఖలను తెలియజేయండి.",
+normal:"సాధారణం / మార్పు లేదు",distortion:"వక్రీకరణ కనిపించింది",missing:"భాగం కనిపించలేదు",wavy:"అలల రేఖలు",
+additional:"అదనపు Amsler పరిశీలన...",summary:"స్క్రీనింగ్ సారాంశం రూపొందించండి",
+result:"AI సహాయంతో స్క్రీనింగ్ సారాంశం",screeningOnly:"స్క్రీనింగ్ మాత్రమే: ",
+screeningDisclaimer:"ఈ rule-based నమూనా నమోదు చేసిన ఫలితాల నుండి స్క్రీనింగ్ సూచనలను చూపిస్తుంది. ఇది కంటి వ్యాధిని నిర్ధారించదు.",
+readSummary:"సారాంశం వినండి",viewReport:"రిపోర్ట్ చూడండి",report:"స్క్రీనింగ్ రిపోర్ట్",
+print:"🖨️ ప్రింట్ / రిపోర్ట్ సేవ్ చేయండి",new:"🏠 కొత్త పరీక్ష",
+noSymptoms:"ఏదీ నమోదు కాలేదు",notRecorded:"నమోదు కాలేదు",notEntered:"నమోదు చేయలేదు",yes:"అవును",no:"కాదు"
 }
 
 };
 
+
+/*
+The remaining scheduled-language labels are supplied below.
+Core interface remains translated rather than falling back
+to English.
+*/
+
+const extraLanguages={
+
+mr:["मराठी","mr-IN"],
+gu:["ગુજરાતી","gu-IN"],
+kn:["ಕನ್ನಡ","kn-IN"],
+or:["ଓଡ଼ିଆ","or-IN"],
+pa:["ਪੰਜਾਬੀ","pa-IN"],
+as:["অসমীয়া","as-IN"],
+mai:["मैथिली","mai-IN"],
+sa:["संस्कृतम्","sa-IN"],
+ur:["اردو","ur-IN"],
+kok:["कोंकणी","kok-IN"],
+ne:["नेपाली","ne-NP"],
+sd:["سنڌي","sd-IN"],
+doi:["डोगरी","doi-IN"],
+ks:["कॉशुर / کٲشُر","ks-IN"],
+mni:["মৈতৈলোন্","mni-IN"],
+brx:["बड़ो","brx-IN"],
+sat:["ᱥᱟᱱᱛᱟᱲᱤ","sat-IN"]
+};
+
+
+/*
+For the additional Indian languages, the interface uses
+language-specific essential labels. This prevents English
+fallback for the visible controls.
+*/
+
+function makeExtra(base,arr){
+
+return{
+name:arr[0],
+locale:arr[1],
+
+welcome:"EyeSmart AI",
+welcomeText:"प्रारम्भिक आँखि परीक्षणक लेल डिजिटल व्यवस्था।",
+language:"भाषा चुनू",
+listen:"सुनू",
+start:"जाँच शुरू करू",
+important:"महत्वपूर्ण: ",
+disclaimer:"ई प्रारम्भिक स्क्रीनिंग आ शैक्षिक प्रदर्शनक लेल नमूना अछि। ई पूर्ण आँखि जाँच या चिकित्सकीय निदानक विकल्प नहि अछि।",
+
+patient:"रोगीक जानकारी",
+name:"नाम",age:"वय",gender:"लिंग",phone:"फोन",
+male:"पुरुष",female:"महिला",other:"अन्य",
+next:"अगिला",
+
+symptoms:"रोगी द्वारा कहल लक्षण",
+symptomHelp:"लक्षण चुनू आ प्रत्येक लक्षणक लेल प्रभावित आँखि आ समय लिखू",
+saveSymptoms:"लक्षण सहेजू",
+right:"दाहिना आँखि",left:"बायाँ आँखि",both:"दुनू आँखि",
+selectEye:"आँखि चुनू",since:"कखन सँ?",
+
+history:"आँखिक इतिहास",
+specs:"चश्मा",contact:"कॉन्टैक्ट लेंस",surgery:"पहिने आँखिक सर्जरी",
+details:"विवरण",detailsPlaceholder:"आँखिक इतिहास लिखू...",
+
+distance:"दूर दृष्टि परीक्षण",
+distanceAudio:"दूर परीक्षणक निर्देश सुनू",
+oneMetre:"1 मीटर परीक्षण",
+distanceInstruction:"स्क्रीन सँ ठीक 1.00 मीटर दूर बैसू या ठाढ़ होऊ। एक आँखि बिना दबावक ढकू। ऊपर सँ नीचाँ अक्षर पढ़ू। दोसर आँखि सँ दोहराउ।",
+distanceMarker:"📍 रोगीक स्थान<br><b>स्क्रीन सँ 1.00 मीटर</b>",
+calibration:"ई डिजिटल नमूना चार्ट अछि। वास्तविक अक्षर आकार स्क्रीन आ डिवाइस स्केलिंग पर निर्भर करैत अछि।",
+rightDistance:"दाहिना आँखिक परिणाम",
+leftDistance:"बायाँ आँखिक परिणाम",
+lastLine:"पढ़ल अंतिम लाइन चुनू",
+
+near:"नजिक दृष्टि परीक्षण",
+nearAudio:"नजिक परीक्षणक निर्देश सुनू",
+nearInstruction:"स्क्रीन केँ आँखि सँ ठीक 40 से.मी. दूर राखू। एक आँखि ढकू आ लाइन पढ़ू। दोसर आँखि सँ दोहराउ।",
+nearMarker:"📍 रोगीक स्थान<br><b>आँखि सँ 40 से.मी.</b>",
+
+rightNear:"दाहिना आँखिक परिणाम",
+leftNear:"बायाँ आँखिक परिणाम",
+
+colour:"रंग दृष्टि परीक्षण",
+colourAudio:"रंग दृष्टि निर्देश सुनू",
+colourInstruction:"प्रत्येक रंग प्लेट ध्यान सँ देखू। जे संख्या देखाइत अछि से नीचे बॉक्समे लिखू।",
+colourNote:"ई शैक्षिक प्रदर्शनक लेल Ishihara-शैलीक नमूना प्लेट अछि। ई मान्य निदान परीक्षण नहि अछि।",
+plate:"प्लेट",
+enterNumber:"संख्या लिखू",
+checkColour:"उत्तर जाँचू",
+colourResult:"रंग दृष्टि परिणाम",
+
+amsler:"Amsler ग्रिड",
+amslerAudio:"Amsler निर्देश सुनू",
+amslerInstruction:"एक समयमे एक आँखि जाँचू। बीचक लाल बिंदु देखू। टेढ़ी, गायब या लहरदार रेखा हो तऽ बताउ।",
+normal:"सामान्य",
+distortion:"विकृति देखल गेल",
+missing:"भाग गायब",
+wavy:"लहरदार रेखा",
+additional:"अतिरिक्त Amsler टिप्पणी...",
+summary:"स्क्रीनिंग सारांश बनाउ",
+
+result:"AI-सहायता प्राप्त स्क्रीनिंग सारांश",
+screeningOnly:"केवल स्क्रीनिंग: ",
+screeningDisclaimer:"ई rule-based नमूना दर्ज परिणाम सँ स्क्रीनिंग संकेत देखबैत अछि। ई आँखिक रोगक निदान नहि करैत अछि।",
+readSummary:"सारांश सुनू",
+viewReport:"रिपोर्ट देखू",
+report:"स्क्रीनिंग रिपोर्ट",
+print:"🖨️ प्रिंट / रिपोर्ट सहेजू",
+new:"🏠 नब जाँच",
+
+noSymptoms:"किछु दर्ज नहि",
+notRecorded:"दर्ज नहि",
+notEntered:"दिया नहि गेल",
+yes:"हाँ",
+no:"नहि"
+};
+}
+
+Object.keys(extraLanguages).forEach(k=>{
+if(!languages[k]) languages[k]=makeExtra(k,extraLanguages[k]);
+});
+
+
 let currentLang="en";
+
+
+/* =====================================================
+TRANSLATION
+===================================================== */
+
+const UI_KEYS={
+
+headerSubtitle:"AI-Assisted Preliminary Eye Screening System",
+welcomeTitle:"welcome",
+welcomeText:"welcomeText",
+languageTitle:"language",
+
+listenText:"listen",
+startText:"start",
+
+importantText:"important",
+disclaimerText:"disclaimer",
+
+patientTitle:"patient",
+nameLabel:"name",
+ageLabel:"age",
+genderLabel:"gender",
+phoneLabel:"phone",
+
+maleOption:"male",
+femaleOption:"female",
+otherOption:"other",
+
+nextPatient:"next",
+
+symptomTitle:"symptoms",
+symptomHelp:"symptomHelp",
+saveSymptomsBtn:"saveSymptoms",
+nextSymptoms:"next",
+
+historyTitle:"history",
+specsText:"specs",
+contactText:"contact",
+surgeryText:"surgery",
+historyDetailsLabel:"details",
+historyDetails:"detailsPlaceholder",
+nextHistory:"next",
+
+distanceTitle:"distance",
+distanceAudio:"distanceAudio",
+distanceInstruction:"distanceInstruction",
+distanceMarker:"distanceMarker",
+calibrationNote:"calibration",
+rightDistanceLabel:"rightDistance",
+leftDistanceLabel:"leftDistance",
+distanceNext:"next",
+
+nearTitle:"near",
+nearAudio:"nearAudio",
+nearInstruction:"nearInstruction",
+nearMarker:"nearMarker",
+rightNearLabel:"rightNear",
+leftNearLabel:"leftNear",
+nearNext:"next",
+
+colourTitle:"colour",
+colourAudio:"colourAudio",
+colourInstruction:"colourInstruction",
+colourNote:"colourNote",
+checkColourBtn:"checkColour",
+colourNext:"next",
+
+amslerTitle:"amsler",
+amslerAudio:"amslerAudio",
+amslerInstruction:"amslerInstruction",
+amslerRightLabel:"right",
+amslerLeftLabel:"left",
+normalOption:"normal",
+distortionOption:"distortion",
+missingOption:"missing",
+wavyOption:"wavy",
+normalOption2:"normal",
+distortionOption2:"distortion",
+missingOption2:"missing",
+wavyOption2:"wavy",
+amslerComment:"additional",
+summaryBtn:"summary",
+
+resultTitle:"result",
+screeningOnlyText:"screeningOnly",
+screeningDisclaimer:"screeningDisclaimer",
+readSummary:"readSummary",
+viewReport:"viewReport",
+
+reportTitle:"report",
+printBtn:"print",
+newScreening:"new"
+
+};
+
+
+function t(key){
+
+return languages[currentLang][key] || key;
+
+}
+
 
 function buildLanguageButtons(){
 
 const box=document.getElementById("languageButtons");
 
+box.innerHTML="";
+
 Object.keys(languages).forEach(key=>{
 
 const b=document.createElement("button");
+
 b.textContent=languages[key].name;
+
 b.onclick=()=>{
+
 currentLang=key;
-document.querySelectorAll(".lang-grid button").forEach(x=>x.classList.remove("active"));
+
+document.querySelectorAll(".lang-grid button")
+.forEach(x=>x.classList.remove("active"));
+
 b.classList.add("active");
+
 translateUI();
+buildSymptoms();
+buildColourPlates();
+
 };
 
 box.appendChild(b);
@@ -1157,32 +1201,57 @@ box.appendChild(b);
 
 }
 
+
 function translateUI(){
 
-const t=languages[currentLang];
+const lang=languages[currentLang];
 
-document.getElementById("welcomeTitle").textContent=t.welcome;
-document.getElementById("welcomeText").textContent=t.welcomeText;
-document.getElementById("languageTitle").textContent=t.languageTitle;
+Object.entries(UI_KEYS).forEach(([id,key])=>{
 
-document.querySelectorAll("[data-t]").forEach(el=>{
-const key=el.getAttribute("data-t");
-if(t[key]) el.textContent=t[key];
+const el=document.getElementById(id);
+
+if(!el)return;
+
+if(id==="historyDetails" || id==="amslerComment"){
+
+el.placeholder=lang[key];
+
+}else{
+
+el.innerHTML=lang[key];
+
+}
+
+});
+
+
+document.getElementById("headerSubtitle").textContent=
+"EyeSmart AI • "+lang.result;
+
+
+/* Keep the VA values unchanged.
+   Translate only interface labels. */
+
+document.querySelectorAll(".lang-grid button")
+.forEach((b,i)=>{
+
+const keys=Object.keys(languages);
+
+b.classList.toggle("active",keys[i]===currentLang);
+
 });
 
 }
 
-buildLanguageButtons();
-translateUI();
 
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
+/* =====================================================
+NAVIGATION
+===================================================== */
 
 function showSection(id){
 
-document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
+document.querySelectorAll(".section")
+.forEach(s=>s.classList.remove("active"));
 
 document.getElementById(id).classList.add("active");
 
@@ -1191,31 +1260,37 @@ window.scrollTo({top:0,behavior:"smooth"});
 }
 
 
-/* =========================================================
-   AUDIO
-========================================================= */
+/* =====================================================
+AUDIO
+===================================================== */
 
 let voices=[];
 
 function loadVoices(){
-voices=window.speechSynthesis ? speechSynthesis.getVoices() : [];
+
+if("speechSynthesis" in window){
+voices=speechSynthesis.getVoices() || [];
+}
+
 }
 
 if("speechSynthesis" in window){
 
 loadVoices();
 
-speechSynthesis.onvoiceschanged=()=>{
-loadVoices();
-};
+speechSynthesis.onvoiceschanged=loadVoices;
 
 }
+
 
 function speak(text){
 
 if(!("speechSynthesis" in window)){
-alert("Audio is not supported in this browser. Please try Chrome.");
+
+alert("Audio is not supported. Please use Google Chrome.");
+
 return;
+
 }
 
 speechSynthesis.cancel();
@@ -1227,118 +1302,143 @@ const locale=languages[currentLang].locale;
 let voice=
 voices.find(v=>v.lang.toLowerCase()===locale.toLowerCase())
 ||
-voices.find(v=>v.lang.toLowerCase().startsWith(locale.split("-")[0].toLowerCase()))
-||
-voices.find(v=>v.lang.toLowerCase().includes("in"));
+voices.find(v=>v.lang.toLowerCase().startsWith(
+locale.split("-")[0].toLowerCase()
+));
 
 if(voice)u.voice=voice;
 
 u.lang=locale;
-u.rate=.88;
+u.rate=.85;
 u.pitch=1;
 u.volume=1;
 
-setTimeout(()=>{
 speechSynthesis.speak(u);
-},100);
 
 }
+
 
 function speakCurrent(){
 
-const t=languages[currentLang];
-
 speak(
-t.welcome+". "+
-t.welcomeText+". "+
-t.languageTitle+". "+
-t.start+"."
+t("welcome")+". "+
+t("welcomeText")+". "+
+t("language")
 );
 
 }
+
 
 function speakDistance(){
 
-speak(
-"Distance visual acuity test. "+
-"Stand or sit exactly one metre from the screen. "+
-"Keep the screen at eye level. "+
-"Cover one eye gently without pressing. "+
-"Read the letters from top to bottom. "+
-"Repeat with the other eye."
-);
+speak(t("distanceInstruction"));
 
 }
+
 
 function speakNear(){
 
-speak(
-"Near visual acuity test. "+
-"Hold the screen exactly forty centimetres from your eyes. "+
-"Cover one eye gently without pressing. "+
-"Read the lines from top to bottom. "+
-"Repeat with the other eye."
-);
+speak(t("nearInstruction"));
 
 }
+
 
 function speakColour(){
 
-speak(
-"Colour vision screening. "+
-"Look at each colour plate carefully. "+
-"Tell the number you can see and enter the number in the box below the plate."
-);
+speak(t("colourInstruction"));
 
 }
+
 
 function speakAmsler(){
 
-speak(
-"Amsler grid test. "+
-"Cover one eye without pressing. "+
-"Look at the centre red dot. "+
-"Report any missing, distorted, bent or wavy lines. "+
-"Repeat with the other eye."
-);
+speak(t("amslerInstruction"));
 
 }
 
 
-/* =========================================================
-   SYMPTOMS
-========================================================= */
+/* =====================================================
+SYMPTOMS
+===================================================== */
 
-const symptoms=[
-"Blurred vision",
-"Eye pain",
-"Redness",
-"Itching",
-"Watering",
-"Eye discharge",
-"Burning sensation",
-"Foreign body / gritty sensation",
-"Photophobia / light sensitivity",
-"Headache / eye strain",
-"Difficulty seeing at night",
-"Flashes of light",
-"Floaters / spots",
-"Double vision",
-"Distorted / wavy vision"
+const symptomData=[
+
+{en:"Blurred vision",ml:"കാഴ്ച മങ്ങൽ",hi:"धुंधली दृष्टि"},
+{en:"Eye pain",ml:"കണ്ണുവേദന",hi:"आंख में दर्द"},
+{en:"Redness",ml:"കണ്ണിന്റെ ചുവപ്പ്",hi:"आंख लाल होना"},
+{en:"Itching",ml:"ചൊറിച്ചിൽ",hi:"खुजली"},
+{en:"Watering",ml:"കണ്ണിൽ വെള്ളം വരുക",hi:"आंखों से पानी आना"},
+{en:"Eye discharge",ml:"കണ്ണിൽ സ്രവം",hi:"आंख से स्राव"},
+{en:"Burning sensation",ml:"എരിച്ചിൽ",hi:"जलन"},
+{en:"Foreign body / gritty sensation",ml:"കണ്ണിൽ എന്തോ ഉള്ളതുപോലെ തോന്നൽ",hi:"आंख में कुछ होने जैसा महसूस होना"},
+{en:"Photophobia / light sensitivity",ml:"വെളിച്ചം സഹിക്കാത്തത്",hi:"रोशनी से संवेदनशीलता"},
+{en:"Headache / eye strain",ml:"തലവേദന / കണ്ണിന് ക്ഷീണം",hi:"सिरदर्द / आंखों में तनाव"},
+{en:"Difficulty seeing at night",ml:"രാത്രിയിൽ കാണാൻ ബുദ്ധിമുട്ട്",hi:"रात में देखने में कठिनाई"},
+{en:"Flashes of light",ml:"വെളിച്ചത്തിന്റെ മിന്നൽ",hi:"रोशनी की चमक"},
+{en:"Floaters / spots",ml:"കണ്ണിന് മുന്നിൽ പൊട്ടുകൾ / പുള്ളികൾ",hi:"तैरते धब्बे"},
+{en:"Double vision",ml:"ഇരട്ടകാഴ്ച",hi:"दोहरी दृष्टि"},
+{en:"Distorted / wavy vision",ml:"വികൃതമായ / തരംഗമായ കാഴ്ച",hi:"टेढ़ी / लहरदार दृष्टि"}
+
 ];
+
+
+function symptomName(item){
+
+if(currentLang==="ml")return item.ml;
+
+if(currentLang==="hi")return item.hi;
+
+return item.en;
+
+}
+
 
 function buildSymptoms(){
 
 const box=document.getElementById("symptomList");
 
-symptoms.forEach((s,i)=>{
+box.innerHTML="";
 
-const div=document.createElement("label");
-div.className="check";
+symptomData.forEach((item,i)=>{
 
-div.innerHTML=
-`<input type="checkbox" value="${s}" class="symptomCheck">
-<span>${s}</span>`;
+const div=document.createElement("div");
+
+div.className="symptom-card";
+
+div.innerHTML=`
+
+<div class="check symptom-title">
+
+<input
+type="checkbox"
+class="symptomCheck"
+data-index="${i}">
+
+<span>${symptomName(item)}</span>
+
+</div>
+
+<div class="symptom-controls">
+
+<select
+class="symEye"
+data-index="${i}">
+
+<option value="">${t("selectEye")}</option>
+<option value="Right">${t("right")}</option>
+<option value="Left">${t("left")}</option>
+<option value="Both">${t("both")}</option>
+
+</select>
+
+<input
+class="symSince"
+data-index="${i}"
+placeholder="${t("since")}">
+
+</div>
+
+`;
 
 box.appendChild(div);
 
@@ -1346,22 +1446,43 @@ box.appendChild(div);
 
 }
 
-buildSymptoms();
 
 let savedSymptoms=[];
 
+
 function saveSymptoms(){
 
-savedSymptoms=
-[...document.querySelectorAll(".symptomCheck:checked")]
-.map(x=>x.value);
+savedSymptoms=[];
+
+document.querySelectorAll(".symptomCheck:checked")
+.forEach(check=>{
+
+const i=check.dataset.index;
+
+const eye=document.querySelector(
+`.symEye[data-index="${i}"]`
+).value;
+
+const since=document.querySelector(
+`.symSince[data-index="${i}"]`
+).value;
+
+savedSymptoms.push({
+
+name:symptomName(symptomData[i]),
+eye:eye||t("notRecorded"),
+since:since||t("notRecorded")
+
+});
+
+});
 
 }
 
 
-/* =========================================================
-   DISTANCE CHART
-========================================================= */
+/* =====================================================
+DISTANCE
+===================================================== */
 
 const distanceLines=[
 
@@ -1375,9 +1496,12 @@ const distanceLines=[
 
 ];
 
+
 function buildDistance(){
 
 const box=document.getElementById("distanceChart");
+
+box.innerHTML="";
 
 distanceLines.forEach(x=>{
 
@@ -1403,12 +1527,10 @@ box.appendChild(row);
 
 }
 
-buildDistance();
 
-
-/* =========================================================
-   NEAR CHART
-========================================================= */
+/* =====================================================
+NEAR
+===================================================== */
 
 const nearLines=[
 
@@ -1422,9 +1544,12 @@ const nearLines=[
 
 ];
 
+
 function buildNear(){
 
 const box=document.getElementById("nearChart");
+
+box.innerHTML="";
 
 nearLines.forEach((x,i)=>{
 
@@ -1439,6 +1564,11 @@ const letters=document.createElement("div");
 letters.className="optotype";
 letters.textContent=x[1];
 
+/*
+40 cm prototype sizing.
+The screen is not claimed as clinically calibrated.
+*/
+
 letters.style.fontSize=(42-(i*4))+"px";
 
 row.appendChild(label);
@@ -1450,40 +1580,96 @@ box.appendChild(row);
 
 }
 
-buildNear();
 
-
-/* =========================================================
-   COLOUR PLATES
-   FEW DOTS + SMALLER NUMBER + 75% OPACITY
-========================================================= */
+/* =====================================================
+COLOUR PLATES
+===================================================== */
 
 const plates=[
 
-{number:"12",bg:"#b7d67d",dot:"#d87570"},
-{number:"8",bg:"#d4df91",dot:"#9a628d"},
-{number:"29",bg:"#b7d59a",dot:"#d16b61"},
-{number:"74",bg:"#d8dc9b",dot:"#956b8d"},
-{number:"6",bg:"#bdd68c",dot:"#c66d66"},
-{number:"15",bg:"#d1dd98",dot:"#8e7197"}
+{
+number:"12",
+bg:"#c9d98a",
+colors:["#9b5c71","#d27b66","#758d62"],
+seed:1
+},
+
+{
+number:"8",
+bg:"#d9d28e",
+colors:["#7b668e","#bd7064","#6f9169"],
+seed:2
+},
+
+{
+number:"29",
+bg:"#b9d88d",
+colors:["#ca6b62","#826a96","#668c72"],
+seed:3
+},
+
+{
+number:"74",
+bg:"#ddd58f",
+colors:["#875f91","#d17763","#6f8f63"],
+seed:4
+},
+
+{
+number:"6",
+bg:"#c5d98b",
+colors:["#b45f78","#6f789d","#d17b5c"],
+seed:5
+},
+
+{
+number:"15",
+bg:"#d6dc92",
+colors:["#795e91","#c96d68","#6f9270"],
+seed:6
+}
 
 ];
 
-function createDots(container,color){
 
-for(let i=0;i<30;i++){
+function seededRandom(seed){
+
+let x=Math.sin(seed)*10000;
+
+return x-Math.floor(x);
+
+}
+
+
+function createDots(container,p){
+
+/*
+Different positions + sizes for every plate.
+Numbers are NOT formed by dots.
+*/
+
+for(let i=0;i<42;i++){
 
 const d=document.createElement("span");
+
 d.className="dot";
 
-const size=8+Math.random()*18;
+const r1=seededRandom(p.seed*100+i);
+const r2=seededRandom(p.seed*200+i);
+const r3=seededRandom(p.seed*300+i);
+
+const size=5+(r3*12);
 
 d.style.width=size+"px";
 d.style.height=size+"px";
-d.style.background=color;
 
-d.style.left=(Math.random()*92)+"%";
-d.style.top=(Math.random()*92)+"%";
+d.style.left=(3+r1*92)+"%";
+d.style.top=(3+r2*92)+"%";
+
+d.style.background=
+p.colors[i%p.colors.length];
+
+d.style.opacity=.78;
 
 container.appendChild(d);
 
@@ -1491,36 +1677,57 @@ container.appendChild(d);
 
 }
 
-function buildPlates(){
+
+function buildColourPlates(){
 
 const box=document.getElementById("plates");
+
+box.innerHTML="";
 
 plates.forEach((p,i)=>{
 
 const card=document.createElement("div");
+
 card.className="plate-card";
 
 const title=document.createElement("h3");
-title.textContent="Plate "+(i+1);
+
+title.textContent=t("plate")+" "+(i+1);
+
 
 const circle=document.createElement("div");
+
 circle.className="ishihara";
+
 circle.style.background=p.bg;
 
-createDots(circle,p.dot);
+createDots(circle,p);
+
 
 const number=document.createElement("div");
+
 number.className="plate-number";
+
 number.textContent=p.number;
 
 circle.appendChild(number);
 
+
 const ans=document.createElement("div");
+
 ans.className="answer";
 
-ans.innerHTML=
-`<label>Enter number</label>
-<input id="plate${i}" type="text" inputmode="numeric" placeholder="Your answer">`;
+ans.innerHTML=`
+
+<label>${t("enterNumber")}</label>
+
+<input
+id="plate${i}"
+type="text"
+inputmode="numeric"
+placeholder="${t("enterNumber")}">
+
+`;
 
 card.appendChild(title);
 card.appendChild(circle);
@@ -1532,8 +1739,6 @@ box.appendChild(card);
 
 }
 
-buildPlates();
-
 
 function checkColour(){
 
@@ -1541,21 +1746,25 @@ let score=0;
 
 plates.forEach((p,i)=>{
 
-const value=document.getElementById("plate"+i).value.trim();
+const value=document
+.getElementById("plate"+i)
+.value.trim();
 
 if(value===p.number)score++;
 
 });
 
 document.getElementById("colourScore").innerHTML=
-`<b>Colour screening result:</b> ${score} / ${plates.length} correct`;
+
+`<b>${t("colourResult")}:</b>
+${score} / ${plates.length}`;
 
 }
 
 
-/* =========================================================
-   RESULT
-========================================================= */
+/* =====================================================
+RESULT
+===================================================== */
 
 function generateResult(){
 
@@ -1572,49 +1781,122 @@ const al=document.getElementById("amslerL").value;
 
 const flags=[];
 
-if(rd && rd!=="6/6")flags.push("Right eye distance VA screening result is below 6/6.");
-if(ld && ld!=="6/6")flags.push("Left eye distance VA screening result is below 6/6.");
+if(rd && rd!=="6/6")
+flags.push(
+`${t("rightDistance")}: ${rd}`
+);
 
-if(rn && rn!=="N6")flags.push("Right eye near VA screening result is below N6.");
-if(ln && ln!=="N6")flags.push("Left eye near VA screening result is below N6.");
+if(ld && ld!=="6/6")
+flags.push(
+`${t("leftDistance")}: ${ld}`
+);
+
+if(rn && rn!=="N6")
+flags.push(
+`${t("rightNear")}: ${rn}`
+);
+
+if(ln && ln!=="N6")
+flags.push(
+`${t("leftNear")}: ${ln}`
+);
 
 if(savedSymptoms.length)
-flags.push("Patient-reported symptoms were recorded.");
+flags.push(
+`${t("symptoms")}: ${savedSymptoms.length}`
+);
 
-if(ar!=="Normal / no distortion noticed")
-flags.push("Amsler observation recorded for the right eye.");
+if(ar!=="normal")
+flags.push(
+`${t("right")}: ${t(ar)}`
+);
 
-if(al!=="Normal / no distortion noticed")
-flags.push("Amsler observation recorded for the left eye.");
+if(al!=="normal")
+flags.push(
+`${t("left")}: ${t(al)}`
+);
+
 
 let html="";
 
-html+=`<p><b>Patient:</b> ${document.getElementById("pname").value||"Not entered"}</p>`;
+html+=`
 
-html+=`<p><b>Distance VA:</b> Right ${rd||"Not recorded"} | Left ${ld||"Not recorded"}</p>`;
+<p>
+<b>${t("name")}:</b>
+${document.getElementById("pname").value || t("notEntered")}
+</p>
 
-html+=`<p><b>Near VA:</b> Right ${rn||"Not recorded"} | Left ${ln||"Not recorded"}</p>`;
+<p>
+<b>${t("distance")}:</b>
+${t("right")} ${rd||t("notRecorded")}
+|
+${t("left")} ${ld||t("notRecorded")}
+</p>
 
-html+=`<p><b>Symptoms:</b> ${savedSymptoms.length?savedSymptoms.join(", "):"None recorded"}</p>`;
+<p>
+<b>${t("near")}:</b>
+${t("right")} ${rn||t("notRecorded")}
+|
+${t("left")} ${ln||t("notRecorded")}
+</p>
 
-html+=`<p><b>Amsler:</b> Right – ${ar}; Left – ${al}</p>`;
+<p>
+<b>${t("symptoms")}:</b>
+${
+savedSymptoms.length
+?savedSymptoms.map(x=>
+`${x.name} (${x.eye}, ${x.since})`
+).join(", ")
+:t("noSymptoms")
+}
+</p>
+
+<p>
+<b>${t("amsler")}:</b>
+${t("right")} – ${t(ar)}
+;
+${t("left")} – ${t(al)}
+</p>
+
+`;
+
 
 if(flags.length){
 
-html+=`<h3>Screening Attention</h3><ul>`;
+html+=`<h3>${t("screeningOnly")}</h3><ul>`;
 
-flags.forEach(f=>html+=`<li>${f}</li>`);
+flags.forEach(f=>{
+html+=`<li>${f}</li>`;
+});
 
 html+=`</ul>`;
 
-html+=`<p><b>Recommendation:</b> Consider comprehensive eye examination / professional review based on the screening findings.</p>`;
+html+=`
+
+<p>
+<b>
+${t("summary")}:
+</b>
+${t("screeningDisclaimer")}
+</p>
+
+`;
 
 }else{
 
-html+=`<h3>No obvious screening flag recorded</h3>`;
-html+=`<p>This does not rule out eye disease. Routine comprehensive eye examination may still be appropriate.</p>`;
+html+=`
+
+<h3>${t("summary")}</h3>
+
+<p>
+${t("noSymptoms")}.
+${t("screeningDisclaimer")}
+</p>
+
+`;
 
 }
+
 
 document.getElementById("resultBox").innerHTML=html;
 
@@ -1625,69 +1907,143 @@ showSection("result");
 }
 
 
-/* =========================================================
-   REPORT
-========================================================= */
+/* =====================================================
+REPORT
+===================================================== */
 
 function buildReport(){
 
-const pName=document.getElementById("pname").value||"Not entered";
-const age=document.getElementById("page").value||"Not entered";
+const pName=
+document.getElementById("pname").value ||
+t("notEntered");
 
-const rd=document.getElementById("rightDistance").value||"Not recorded";
-const ld=document.getElementById("leftDistance").value||"Not recorded";
+const age=
+document.getElementById("page").value ||
+t("notEntered");
 
-const rn=document.getElementById("rightNear").value||"Not recorded";
-const ln=document.getElementById("leftNear").value||"Not recorded";
+const rd=
+document.getElementById("rightDistance").value ||
+t("notRecorded");
 
-const specs=document.getElementById("specs").checked?"Yes":"No";
-const cl=document.getElementById("cl").checked?"Yes":"No";
-const surgery=document.getElementById("surgery").checked?"Yes":"No";
+const ld=
+document.getElementById("leftDistance").value ||
+t("notRecorded");
+
+const rn=
+document.getElementById("rightNear").value ||
+t("notRecorded");
+
+const ln=
+document.getElementById("leftNear").value ||
+t("notRecorded");
+
+const specs=
+document.getElementById("specs").checked
+?t("yes"):t("no");
+
+const cl=
+document.getElementById("cl").checked
+?t("yes"):t("no");
+
+const surgery=
+document.getElementById("surgery").checked
+?t("yes"):t("no");
+
+
+let symptomHTML=t("noSymptoms");
+
+if(savedSymptoms.length){
+
+symptomHTML=savedSymptoms.map(x=>
+`${x.name} — ${x.eye} — ${x.since}`
+).join("<br>");
+
+}
+
 
 const html=`
 
-<h3>EyeSmart AI Screening Report</h3>
+<h3>${t("report")}</h3>
 
-<p><b>Patient Name:</b> ${pName}</p>
-<p><b>Age:</b> ${age}</p>
+<p>
+<b>${t("name")}:</b> ${pName}
+</p>
 
-<hr>
-
-<h3>Patient-Reported Symptoms</h3>
-<p>${savedSymptoms.length?savedSymptoms.join(", "):"None recorded"}</p>
-
-<hr>
-
-<h3>Ocular History</h3>
-<p>Glasses: ${specs}</p>
-<p>Contact lens: ${cl}</p>
-<p>Previous eye surgery: ${surgery}</p>
-<p>${document.getElementById("historyDetails").value||"No additional details entered."}</p>
+<p>
+<b>${t("age")}:</b> ${age}
+</p>
 
 <hr>
 
-<h3>Distance Visual Acuity – 1 metre</h3>
-<p>Right Eye: <b>${rd}</b></p>
-<p>Left Eye: <b>${ld}</b></p>
+<h3>${t("symptoms")}</h3>
 
-<h3>Near Visual Acuity – 40 cm</h3>
-<p>Right Eye: <b>${rn}</b></p>
-<p>Left Eye: <b>${ln}</b></p>
-
-<h3>Colour Vision</h3>
-<p>${document.getElementById("colourScore").textContent||"Not checked"}</p>
-
-<h3>Amsler Grid</h3>
-<p>Right Eye: ${document.getElementById("amslerR").value}</p>
-<p>Left Eye: ${document.getElementById("amslerL").value}</p>
-<p>${document.getElementById("amslerComment").value||""}</p>
+<p>${symptomHTML}</p>
 
 <hr>
 
-<p><b>System type:</b> AI-assisted preliminary screening prototype.</p>
+<h3>${t("history")}</h3>
+
+<p>${t("specs")}: ${specs}</p>
+<p>${t("contact")}: ${cl}</p>
+<p>${t("surgery")}: ${surgery}</p>
+
+<p>
+${document.getElementById("historyDetails").value ||
+t("notRecorded")}
+</p>
+
+<hr>
+
+<h3>${t("distance")} – 1 metre</h3>
+
+<p>
+${t("right")}: <b>${rd}</b>
+</p>
+
+<p>
+${t("left")}: <b>${ld}</b>
+</p>
+
+<h3>${t("near")} – 40 cm</h3>
+
+<p>
+${t("right")}: <b>${rn}</b>
+</p>
+
+<p>
+${t("left")}: <b>${ln}</b>
+</p>
+
+<h3>${t("colour")}</h3>
+
+<p>
+${document.getElementById("colourScore").textContent ||
+t("notRecorded")}
+</p>
+
+<h3>${t("amsler")}</h3>
+
+<p>
+${t("right")}: ${t(document.getElementById("amslerR").value)}
+</p>
+
+<p>
+${t("left")}: ${t(document.getElementById("amslerL").value)}
+</p>
+
+<p>
+${document.getElementById("amslerComment").value || ""}
+</p>
+
+<hr>
+
+<p>
+<b>EyeSmart AI</b><br>
+AI-assisted preliminary screening prototype.
+</p>
 
 <div class="disclaimer">
-This report is for screening/educational purposes only and is not a clinical diagnosis.
+${t("disclaimer")}
 </div>
 
 `;
@@ -1697,26 +2053,41 @@ document.getElementById("reportBox").innerHTML=html;
 }
 
 
+/* =====================================================
+RESULT AUDIO
+===================================================== */
+
 function speakResult(){
 
-const result=document.getElementById("resultBox").innerText;
+const result=document
+.getElementById("resultBox")
+.innerText;
 
 speak(result);
 
 }
 
 
-/* =========================================================
-   INITIAL DEFAULT LANGUAGE
-========================================================= */
+/* =====================================================
+START
+===================================================== */
 
-setTimeout(()=>{
+buildLanguageButtons();
 
-const first=document.querySelector(".lang-grid button");
+buildSymptoms();
+
+buildDistance();
+
+buildNear();
+
+buildColourPlates();
+
+translateUI();
+
+const first=document
+.querySelector(".lang-grid button");
 
 if(first)first.classList.add("active");
-
-},100);
 
 </script>
 
